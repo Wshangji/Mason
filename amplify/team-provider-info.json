@@ -10,6 +10,11 @@
       "StackName": "amplify-mason-dev-195846",
       "StackId": "arn:aws:cloudformation:us-east-1:278463271169:stack/amplify-mason-dev-195846/9b3bb450-33f8-11ec-b3c0-0e1db4f6fc3b",
       "AmplifyAppId": "d36u4or0iycenz"
+    },
+    "categories": {
+      "auth": {
+        "mason13db62e9": {}
+      }
     }
   }
 }
