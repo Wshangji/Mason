@@ -2,6 +2,7 @@ package com.example.mason.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.amplifyframework.core.Amplify;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
 
@@ -21,6 +23,7 @@ public class LoginTabFragment extends Fragment {
     EditText email,pass;
     TextView forgetPass;
     Button login;
+    boolean isLogin;
     float v = 0;
 
     @Nullable
@@ -55,9 +58,17 @@ public class LoginTabFragment extends Fragment {
                 String emailString = email.getText().toString();
                 String passString = pass.getText().toString();
                 Intent intent = new Intent();
-                if (emailString.equals("admin") && passString.equals("admin"))
-                intent.setClass(getActivity(), MainActivity.class);
-                startActivity(intent);
+                Amplify.Auth.signIn(
+                        emailString,
+                        passString,
+                        result -> Log.i("AuthQuickstart", String.valueOf(isLogin = result.isSignInComplete())),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+                System.out.println(isLogin+" fniuwsehbguisbnguiebnsduigbdruiebtg");
+                if (isLogin) {
+                    intent.setClass(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
