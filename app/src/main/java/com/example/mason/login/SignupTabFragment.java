@@ -2,6 +2,7 @@ package com.example.mason.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,7 @@ public class SignupTabFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup)inflater.inflate(R.layout.signup_fragment,container,false);
 
+        final MyCountDownTimer myCountDownTimer = new MyCountDownTimer(60000,1000);
         username = root.findViewById(R.id.Username);
         password = root.findViewById(R.id.Password);
         email = root.findViewById(R.id.Email);
@@ -79,6 +81,7 @@ public class SignupTabFragment extends Fragment {
                         result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
                         error -> Log.e("AuthQuickStart", "Sign up failed", error)
                 );
+                myCountDownTimer.start();
             }
         });
 
@@ -99,4 +102,33 @@ public class SignupTabFragment extends Fragment {
 
         return root;
     }
+
+
+
+    //倒计时函数
+    private class MyCountDownTimer extends CountDownTimer {
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        //计时过程
+        @Override
+        public void onTick(long l) {
+            //防止计时过程中重复点击
+            send.setClickable(false);
+            send.setText(l/1000+"秒");
+
+        }
+
+        //计时完毕的方法
+        @Override
+        public void onFinish() {
+            //重新给Button设置文字
+            send.setText("Reacquire");
+            //设置可点击
+            send.setClickable(true);
+        }
+    }
+
 }
