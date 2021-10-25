@@ -20,7 +20,7 @@ import com.example.mason.R;
 
 public class LoginTabFragment extends Fragment {
 
-    EditText email,pass;
+    EditText username,pass;
     TextView forgetPass;
     Button login;
     boolean isLogin;
@@ -33,20 +33,20 @@ public class LoginTabFragment extends Fragment {
 
         pass = root.findViewById(R.id.pass);
         login = root.findViewById(R.id.login);
-        email = root.findViewById(R.id.email);
+        username = root.findViewById(R.id.user);
         forgetPass = root.findViewById(R.id.forgetPass);
 
-        email.setTranslationY(800);
+        username.setTranslationY(800);
         pass.setTranslationY(800);
         forgetPass.setTranslationY(800);
         login.setTranslationY(800);
 
-        email.setAlpha(v);
+        username.setAlpha(v);
         pass.setAlpha(v);
         forgetPass.setAlpha(v);
         login.setAlpha(v);
 
-        email.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
+        username.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         pass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(700).start();
         forgetPass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
         login.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
@@ -55,16 +55,15 @@ public class LoginTabFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailString = email.getText().toString();
+                String userString = username.getText().toString();
                 String passString = pass.getText().toString();
                 Intent intent = new Intent();
                 Amplify.Auth.signIn(
-                        emailString,
+                        userString,
                         passString,
                         result -> Log.i("AuthQuickstart", String.valueOf(isLogin = result.isSignInComplete())),
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
-                System.out.println(isLogin+" fniuwsehbguisbnguiebnsduigbdruiebtg");
                 if (isLogin) {
                     intent.setClass(getActivity(), MainActivity.class);
                     startActivity(intent);
