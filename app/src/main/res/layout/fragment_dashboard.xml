@@ -28,7 +28,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="保存"
+            android:backgroundTint="#1867c0"
+            android:text="Save"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="15dp"
             android:layout_weight="1"
@@ -38,10 +39,11 @@
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#dcdcdc"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="25dp"
             android:text="Logout"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

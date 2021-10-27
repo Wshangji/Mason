@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".perquestron.activity_perquestion">
+    tools:context=".perquestron.Activity_perquestion">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -238,6 +238,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="65dp">
                 <Button
+                    android:id="@+id/pre_submit"
                     android:layout_width="165dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#CCCCCC"

@@ -24,6 +24,7 @@ import com.amplifyframework.core.Amplify;
 import com.example.mason.LoginActivity;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
+import com.example.mason.perquestron.Activity_perquestion;
 
 import static com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread;
 
@@ -131,6 +132,10 @@ public class SignupTabFragment extends Fragment {
                         toast.show();
                     }
                 });
+
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), Activity_perquestion.class);
+                startActivity(intent);
             }
         });
 
