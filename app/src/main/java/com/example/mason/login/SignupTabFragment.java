@@ -133,6 +133,13 @@ public class SignupTabFragment extends Fragment {
                     }
                 });
 
+                Amplify.Auth.signIn(
+                        username.getText().toString(),
+                        password.getText().toString(),
+                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), Activity_perquestion.class);
                 startActivity(intent);

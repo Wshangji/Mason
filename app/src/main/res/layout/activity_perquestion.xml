@@ -33,27 +33,32 @@
                     android:textSize="20dp" />
 
                 <RadioGroup
+                    android:id="@+id/gender_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/gender_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Male"
                         android:textSize="16dp" />
 
                     <RadioButton
+                        android:id="@+id/gender_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/gender_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="I do not identify as either male or female"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/gender_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="I’m not sure yet"
@@ -76,32 +81,38 @@
                     android:textSize="20dp" />
 
                 <RadioGroup
+                    android:id="@+id/race_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/race_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="White"
                         android:textSize="16dp" />
 
                     <RadioButton
+                        android:id="@+id/race_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Black or African-American"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/race_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Native American or American Indian"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/race_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Asian/Pacific Islander"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/race_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Other"
@@ -124,22 +135,26 @@
                     android:textSize="20dp" />
 
                 <RadioGroup
+                    android:id="@+id/eth_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/eth_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hispanic or Latino"
                         android:textSize="16dp" />
 
                     <RadioButton
+                        android:id="@+id/eth_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NOT Hispanic or Latino"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/eth_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Unknown/Not Reported"

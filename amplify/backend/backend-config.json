@@ -27,16 +27,15 @@
     }
   },
   "api": {
-    "mason": {
+    "masonapp": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "description": "MasonAPIKey"
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authmason13db62e9"
             }
           },
           "additionalAuthenticationProviders": []

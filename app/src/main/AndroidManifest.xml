@@ -10,10 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mason">
-        <activity android:name=".perquestron.Activity_perquestion"></activity>
+        <activity android:name=".FinishActivity"></activity>
+        <activity android:name=".perquestron.Activity_perquestion" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".activity_introductory">
             <intent-filter>

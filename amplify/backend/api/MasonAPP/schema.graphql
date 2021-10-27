@@ -1,0 +1,19 @@
+type User
+    @model
+    @auth(
+         rules: [
+           { allow: owner, ownerField: "owner", operations: [create, read] },
+         ]) {
+    id: ID!
+    name: String
+    perception: [Perception] @connection(name: "UserPerception")
+}
+
+type Perception @model {
+    id: ID!
+    gender: String
+    race: String
+    ethnicity: String
+    ses: String
+    eigenstates: String
+}
