@@ -6,12 +6,14 @@ import android.util.Log;
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.AWSDataStorePlugin;
 
 public class AmplifyConfigure extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
         try {
+            //Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("Mason", "Initialized Amplify");
