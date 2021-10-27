@@ -7,12 +7,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.amplifyframework.auth.AuthUser;
+import com.amplifyframework.core.Amplify;
 import com.example.mason.fragment.OnBoardingFragment1;
 import com.example.mason.fragment.OnBoardingFragment2;
 import com.example.mason.fragment.OnBoardingFragment3;
@@ -38,12 +41,20 @@ public class activity_introductory extends AppCompatActivity {
         splashImg = findViewById(R.id.img);
         lottieAnimationView = findViewById(R.id.lottie);
 
-        viewPager = findViewById(R.id.pager);
-        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
+        //用户登录判断
+        AuthUser currentUser = Amplify.Auth.getCurrentUser();
+        if (currentUser == null){
+            viewPager = findViewById(R.id.pager);
+            pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+            viewPager.setAdapter(pagerAdapter);
 
-        anim = AnimationUtils.loadAnimation(this,R.anim.o_n_anim);
-        viewPager.setAdapter(pagerAdapter);
+            anim = AnimationUtils.loadAnimation(this,R.anim.o_n_anim);
+            viewPager.setAdapter(pagerAdapter);
+        } else {
+            Intent intent = new Intent();
+            intent.setClass(this, MainActivity.class);
+            startActivity(intent);
+        }
 
         splashImg.animate().translationY(-3600).setDuration(1000).setStartDelay(1600);
         appText.animate().translationY(1600).setDuration(1000).setStartDelay(1600);

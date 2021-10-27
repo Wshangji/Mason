@@ -2,28 +2,31 @@ package com.example.mason.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.amplifyframework.auth.AuthException;
+import com.amplifyframework.auth.result.AuthSignInResult;
 import com.amplifyframework.core.Amplify;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
+
+import static com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread;
 
 public class LoginTabFragment extends Fragment {
 
     EditText username,pass;
     TextView forgetPass;
     Button login;
-    boolean isLogin;
     float v = 0;
 
     @Nullable
@@ -55,20 +58,36 @@ public class LoginTabFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userString = username.getText().toString();
-                String passString = pass.getText().toString();
-                Intent intent = new Intent();
                 Amplify.Auth.signIn(
-                        userString,
-                        passString,
-                        result -> Log.i("AuthQuickstart", String.valueOf(isLogin = result.isSignInComplete())),
-                        error -> Log.e("AuthQuickstart", error.toString())
+                        username.getText().toString(),
+                        pass.getText().toString(),
+                        this::onLoginSuccess,
+                        this::onLoginError
                 );
-                if (isLogin) {
-                    intent.setClass(getActivity(), MainActivity.class);
-                    startActivity(intent);
-                }
             }
+
+            private void onLoginSuccess(AuthSignInResult authSignInResult) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        final Toast toast = Toast.makeText(getContext(), "Login Success" ,Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+
+            private void onLoginError(AuthException e) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        final Toast toast = Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
+            }
+
+
         });
 
         return root;

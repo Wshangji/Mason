@@ -9,18 +9,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.amplifyframework.auth.AuthException;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
+import com.amplifyframework.auth.result.AuthSignUpResult;
 import com.amplifyframework.core.Amplify;
 import com.example.mason.LoginActivity;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
+
+import static com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread;
 
 public class SignupTabFragment extends Fragment {
 
@@ -69,34 +74,63 @@ public class SignupTabFragment extends Fragment {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailString = email.getText().toString();
-                String userName = username.getText().toString();
-                String pwd = password.getText().toString();
-                String comfimPwd = comfim.getText().toString();
+                if (password.getText().toString().equals(comfim.getText().toString())) {
+                    AuthSignUpOptions options = AuthSignUpOptions.builder()
+                            .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
+                            .build();
+                    Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
+                            result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
+                            this::signUpError
+                    );
+                    myCountDownTimer.start();
+                } else {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(getContext(), "Password input is inconsistent" ,Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+                }
+            }
 
-                AuthSignUpOptions options = AuthSignUpOptions.builder()
-                        .userAttribute(AuthUserAttributeKey.email(), emailString)
-                        .build();
-                Amplify.Auth.signUp(userName, pwd, options,
-                        result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
-                        error -> Log.e("AuthQuickStart", "Sign up failed", error)
-                );
-                myCountDownTimer.start();
+            private void signUpError(AuthException e) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        final Toast toast = Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                });
             }
         });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String codeString = code.getText().toString();
-                String userName = username.getText().toString();
 
                 Amplify.Auth.confirmSignUp(
-                        userName,
-                        codeString,
-                        result -> Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete"),
-                        error -> Log.e("AuthQuickstart", error.toString())
+                        username.getText().toString(),
+                        code.getText().toString(),
+                        this::onJoinSuccess,
+                        this::OnjoinError
                 );
+            }
+
+            private void OnjoinError(AuthException e) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        final Toast toast = Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
+            }
+
+            private void onJoinSuccess(AuthSignUpResult authSignUpResult) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        final Toast toast = Toast.makeText(getContext(), "Registration Success" ,Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
             }
         });
 
@@ -117,7 +151,7 @@ public class SignupTabFragment extends Fragment {
         public void onTick(long l) {
             //防止计时过程中重复点击
             send.setClickable(false);
-            send.setText(l/1000+"秒");
+            send.setText(l/1000+"s");
 
         }
 
