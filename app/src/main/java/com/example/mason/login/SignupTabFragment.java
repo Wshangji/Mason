@@ -142,6 +142,7 @@ public class SignupTabFragment extends Fragment {
 
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), Activity_perquestion.class);
+                intent.putExtra("username",username.getText().toString());
                 startActivity(intent);
             }
         });

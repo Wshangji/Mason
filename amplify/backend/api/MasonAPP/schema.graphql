@@ -16,4 +16,5 @@ type Perception @model {
     ethnicity: String
     ses: String
     eigenstates: String
+    user: [User] @connection(name: "UserPerception")
 }

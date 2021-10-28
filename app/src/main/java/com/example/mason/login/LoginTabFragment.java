@@ -2,6 +2,7 @@ package com.example.mason.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.amplifyframework.auth.AuthException;
 import com.amplifyframework.auth.result.AuthSignInResult;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.User;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
 
@@ -55,6 +57,7 @@ public class LoginTabFragment extends Fragment {
         login.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
 
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +70,7 @@ public class LoginTabFragment extends Fragment {
             }
 
             private void onLoginSuccess(AuthSignInResult authSignInResult) {
+
                 runOnUiThread(new Runnable() {
                     public void run() {
                         final Toast toast = Toast.makeText(getContext(), "Login Success" ,Toast.LENGTH_LONG);

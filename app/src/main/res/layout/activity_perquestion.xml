@@ -177,27 +177,32 @@
                     android:textSize="20dp" />
 
                 <RadioGroup
+                    android:id="@+id/ses_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/ses_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Not enough money to get by"
                         android:textSize="16dp" />
 
                     <RadioButton
+                        android:id="@+id/ses_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Just enough money to get by"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/ses_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="We only have to worry about money for fun and extras"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/ses_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="We never have to worry about money"
@@ -220,22 +225,26 @@
                     android:textSize="20dp" />
 
                 <RadioGroup
+                    android:id="@+id/emp_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
+                        android:id="@+id/emp_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Part-time"
                         android:textSize="16dp" />
 
                     <RadioButton
+                        android:id="@+id/emp_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Full-time"
                         android:textSize="16dp" />
                     <RadioButton
+                        android:id="@+id/emp_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Not currently employed"
