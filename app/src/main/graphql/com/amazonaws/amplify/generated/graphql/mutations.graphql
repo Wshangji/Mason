@@ -1,0 +1,163 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    name
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    name
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    name
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation CreatePerception(
+  $input: CreatePerceptionInput!
+  $condition: ModelPerceptionConditionInput
+) {
+  createPerception(input: $input, condition: $condition) {
+    id
+    gender
+    race
+    ethnicity
+    ses
+    eigenstates
+    user {
+      id
+      name
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation UpdatePerception(
+  $input: UpdatePerceptionInput!
+  $condition: ModelPerceptionConditionInput
+) {
+  updatePerception(input: $input, condition: $condition) {
+    id
+    gender
+    race
+    ethnicity
+    ses
+    eigenstates
+    user {
+      id
+      name
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation DeletePerception(
+  $input: DeletePerceptionInput!
+  $condition: ModelPerceptionConditionInput
+) {
+  deletePerception(input: $input, condition: $condition) {
+    id
+    gender
+    race
+    ethnicity
+    ses
+    eigenstates
+    user {
+      id
+      name
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+mutation CreateQuestions(
+  $input: CreateQuestionsInput!
+  $condition: ModelQuestionsConditionInput
+) {
+  createQuestions(input: $input, condition: $condition) {
+    id
+    name
+    pro1
+    pro2
+    pro3
+    pro4
+    pro5
+    pro6
+    pro7
+    updatedAt
+    createdAt
+    owner
+  }
+}
+mutation UpdateQuestions(
+  $input: UpdateQuestionsInput!
+  $condition: ModelQuestionsConditionInput
+) {
+  updateQuestions(input: $input, condition: $condition) {
+    id
+    name
+    pro1
+    pro2
+    pro3
+    pro4
+    pro5
+    pro6
+    pro7
+    updatedAt
+    createdAt
+    owner
+  }
+}
+mutation DeleteQuestions(
+  $input: DeleteQuestionsInput!
+  $condition: ModelQuestionsConditionInput
+) {
+  deleteQuestions(input: $input, condition: $condition) {
+    id
+    name
+    pro1
+    pro2
+    pro3
+    pro4
+    pro5
+    pro6
+    pro7
+    updatedAt
+    createdAt
+    owner
+  }
+}

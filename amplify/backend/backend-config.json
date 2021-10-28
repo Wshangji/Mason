@@ -27,7 +27,7 @@
     }
   },
   "api": {
-    "masonapp": {
+    "Masonapp": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {

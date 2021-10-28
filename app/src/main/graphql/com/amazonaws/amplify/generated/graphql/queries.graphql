@@ -1,0 +1,112 @@
+# this is an auto generated file. This will be overwritten
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    name
+    createdAt
+    updatedAt
+    owner
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+  }
+}
+query GetPerception($id: ID!) {
+  getPerception(id: $id) {
+    id
+    gender
+    race
+    ethnicity
+    ses
+    eigenstates
+    user {
+      id
+      name
+      createdAt
+      updatedAt
+      owner
+    }
+    createdAt
+    updatedAt
+    owner
+  }
+}
+query ListPerceptions(
+  $filter: ModelPerceptionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPerceptions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      gender
+      race
+      ethnicity
+      ses
+      eigenstates
+      user {
+        id
+        name
+        createdAt
+        updatedAt
+        owner
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+    nextToken
+  }
+}
+query GetQuestions($id: ID!) {
+  getQuestions(id: $id) {
+    id
+    name
+    pro1
+    pro2
+    pro3
+    pro4
+    pro5
+    pro6
+    pro7
+    updatedAt
+    createdAt
+    owner
+  }
+}
+query ListQuestionss(
+  $filter: ModelQuestionsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listQuestionss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      pro1
+      pro2
+      pro3
+      pro4
+      pro5
+      pro6
+      pro7
+      updatedAt
+      createdAt
+      owner
+    }
+    nextToken
+  }
+}

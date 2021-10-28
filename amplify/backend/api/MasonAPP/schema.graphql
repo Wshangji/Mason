@@ -6,15 +6,37 @@ type User
          ]) {
     id: ID!
     name: String
-    perception: [Perception] @connection(name: "UserPerception")
 }
 
-type Perception @model {
+type Perception
+    @model
+    @auth(
+             rules: [
+               { allow: owner, ownerField: "owner", operations: [create, delete, update] },
+             ]) {
     id: ID!
     gender: String
     race: String
     ethnicity: String
     ses: String
     eigenstates: String
-    user: [User] @connection(name: "UserPerception")
+    user: User @connection
+}
+
+type Questions
+    @model
+    @auth(
+                 rules: [
+                   { allow: owner, ownerField: "owner", operations: [create, delete, update] },
+                 ]) {
+    id: ID!
+    name: String!
+    pro1: String
+    pro2: String
+    pro3: String
+    pro4: String
+    pro5: String
+    pro6: String
+    pro7: String
+    updatedAt: AWSDateTime
 }
