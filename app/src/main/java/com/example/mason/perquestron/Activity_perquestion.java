@@ -84,7 +84,7 @@ public class Activity_perquestion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String username = getIntent().getStringExtra("username");
+                String username = Amplify.Auth.getCurrentUser().getUsername();
                 String userId = Amplify.Auth.getCurrentUser().getUserId();
                 Amplify.DataStore.save(
                         User.builder().id(userId).name(username).build(),

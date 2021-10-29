@@ -80,10 +80,9 @@ public class SignupTabFragment extends Fragment {
                             .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
                             .build();
                     Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
-                            result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
+                            this::signUpSuccess,
                             this::signUpError
                     );
-                    myCountDownTimer.start();
                 } else {
                     runOnUiThread(new Runnable() {
                         public void run() {
@@ -92,6 +91,10 @@ public class SignupTabFragment extends Fragment {
                         }
                     });
                 }
+            }
+
+            private void signUpSuccess(AuthSignUpResult authSignUpResult) {
+                myCountDownTimer.start();
             }
 
             private void signUpError(AuthException e) {
@@ -137,12 +140,11 @@ public class SignupTabFragment extends Fragment {
                         username.getText().toString(),
                         password.getText().toString(),
                         result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                        error -> Log.e("AuthQuickstart", error.toString())
+                        error -> Log.e("Login Error: \n", error.toString())
                 );
 
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), Activity_perquestion.class);
-                intent.putExtra("username",username.getText().toString());
                 startActivity(intent);
             }
         });
