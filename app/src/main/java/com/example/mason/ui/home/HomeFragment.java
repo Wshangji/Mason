@@ -26,6 +26,7 @@ import com.amplifyframework.datastore.generated.model.Questions;
 import com.example.mason.FinishActivity;
 import com.example.mason.LoginActivity;
 import com.example.mason.R;
+import com.example.mason.queslist.ListActivity1;
 import com.example.mason.queslist.ListActivity2;
 
 public class HomeFragment extends Fragment {
@@ -49,7 +50,7 @@ public class HomeFragment extends Fragment {
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity(), ListActivity2.class);
+                        Intent intent = new Intent(getActivity(), ListActivity1.class);
                         startActivity(intent);
 
 //                        String username = Amplify.Auth.getCurrentUser().getUsername();

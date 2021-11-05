@@ -4,4 +4,5 @@
     <string name="title_home">Home</string>
     <string name="title_user_center">User Center</string>
     <string name="title_notifications">Notifications</string>
+    <string name="content">同意许可</string>
 </resources>

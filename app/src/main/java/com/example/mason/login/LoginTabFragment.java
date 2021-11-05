@@ -54,7 +54,7 @@ public class LoginTabFragment extends Fragment {
 
         //设置加载动画
         username.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        pass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(700).start();
+        pass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(600).start();
         forgetPass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
         login.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
 

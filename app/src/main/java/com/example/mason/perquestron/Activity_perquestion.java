@@ -1,7 +1,9 @@
 package com.example.mason.perquestron;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Perception;
 import com.amplifyframework.datastore.generated.model.User;
+import com.example.mason.LoginActivity;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
 
@@ -39,6 +42,32 @@ public class Activity_perquestion extends AppCompatActivity {
         RadioGroup radioGroup3 = (RadioGroup) findViewById(R.id.eth_group);
         RadioGroup radioGroup4 = (RadioGroup) findViewById(R.id.ses_group);
         RadioGroup radioGroup5 = (RadioGroup) findViewById(R.id.emp_group);
+
+        //弹出框
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage("gsedhrsedhsedh");
+        //点击空白不消失
+        builder1.setCancelable(false);
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Activity_perquestion.this, LoginActivity.class);
+                        startActivity(intent);
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+
+        alert11.show();
 
 
         //获取单选值
