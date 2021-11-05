@@ -40,6 +40,8 @@ public class SignupTabFragment extends Fragment {
         ViewGroup root = (ViewGroup)inflater.inflate(R.layout.signup_fragment,container,false);
 
         final MyCountDownTimer myCountDownTimer = new MyCountDownTimer(60000,1000);
+
+        //获取页面标签
         username = root.findViewById(R.id.Username);
         password = root.findViewById(R.id.Password);
         email = root.findViewById(R.id.Email);
@@ -64,6 +66,7 @@ public class SignupTabFragment extends Fragment {
         signup.setAlpha(v);
         send.setAlpha(v);
 
+        //页面元素进入动画
         email.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         password.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
         comfim.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
@@ -72,31 +75,34 @@ public class SignupTabFragment extends Fragment {
         username.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(700).start();
         signup.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
 
+        //发送验证码事件
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (password.getText().toString().equals(comfim.getText().toString())) {
-                    AuthSignUpOptions options = AuthSignUpOptions.builder()
-                            .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
-                            .build();
-                    Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
-                            this::signUpSuccess,
-                            this::signUpError
-                    );
-                } else {
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            final Toast toast = Toast.makeText(getContext(), "Password input is inconsistent" ,Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    });
-                }
+//                if (password.getText().toString().equals(comfim.getText().toString())) {
+//                    AuthSignUpOptions options = AuthSignUpOptions.builder()
+//                            .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
+//                            .build();
+//                    Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
+//                            this::signUpSuccess,
+//                            this::signUpError
+//                    );
+//                } else {
+//                    runOnUiThread(new Runnable() {
+//                        public void run() {
+//                            final Toast toast = Toast.makeText(getContext(), "Password input is inconsistent" ,Toast.LENGTH_SHORT);
+//                            toast.show();
+//                        }
+//                    });
+//                }
             }
 
+            //验证码发送成功
             private void signUpSuccess(AuthSignUpResult authSignUpResult) {
                 myCountDownTimer.start();
             }
 
+            //验证码发送失败
             private void signUpError(AuthException e) {
                 runOnUiThread(new Runnable() {
                     public void run() {
@@ -107,18 +113,21 @@ public class SignupTabFragment extends Fragment {
             }
         });
 
+        //注册事件
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Amplify.Auth.confirmSignUp(
-                        username.getText().toString(),
-                        code.getText().toString(),
-                        this::onJoinSuccess,
-                        this::OnjoinError
-                );
+//                Amplify.Auth.confirmSignUp(
+//                        username.getText().toString(),
+//                        code.getText().toString(),
+//                        this::onJoinSuccess,
+//                        this::OnjoinError
+//                );
+                jumpPersen();
             }
 
+            //注册失败事件
             private void OnjoinError(AuthException e) {
                 runOnUiThread(new Runnable() {
                     public void run() {
@@ -128,6 +137,7 @@ public class SignupTabFragment extends Fragment {
                 });
             }
 
+            //注册失败事件
             private void onJoinSuccess(AuthSignUpResult authSignUpResult) {
                 runOnUiThread(new Runnable() {
                     public void run() {
@@ -136,13 +146,20 @@ public class SignupTabFragment extends Fragment {
                     }
                 });
 
-                Amplify.Auth.signIn(
-                        username.getText().toString(),
-                        password.getText().toString(),
-                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-                        error -> Log.e("Login Error: \n", error.toString())
-                );
+                //用户登录事件
+//                Amplify.Auth.signIn(
+//                        username.getText().toString(),
+//                        password.getText().toString(),
+//                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+//                        error -> Log.e("Login Error: \n", error.toString())
+//                );
 
+                //页面跳转
+                jumpPersen();
+            }
+
+            //用户问题页面跳转
+            private void jumpPersen() {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), Activity_perquestion.class);
                 startActivity(intent);

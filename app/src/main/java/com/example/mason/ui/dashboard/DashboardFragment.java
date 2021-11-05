@@ -38,11 +38,11 @@ public class DashboardFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Amplify.Auth.signOut(
-                        AuthSignOutOptions.builder().globalSignOut(true).build(),
-                        () -> Log.i("AuthQuickstart", "Signed out globally"),
-                        error -> Log.e("AuthQuickstart", error.toString())
-                );
+//                Amplify.Auth.signOut(
+//                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+//                        () -> Log.i("AuthQuickstart", "Signed out globally"),
+//                        error -> Log.e("AuthQuickstart", error.toString())
+//                );
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }

@@ -42,19 +42,19 @@ public class activity_introductory extends AppCompatActivity {
         lottieAnimationView = findViewById(R.id.lottie);
 
         //用户登录判断
-        AuthUser currentUser = Amplify.Auth.getCurrentUser();
-        if (currentUser == null){
-            viewPager = findViewById(R.id.pager);
-            pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-            viewPager.setAdapter(pagerAdapter);
-
-            anim = AnimationUtils.loadAnimation(this,R.anim.o_n_anim);
-            viewPager.setAdapter(pagerAdapter);
-        } else {
-            Intent intent = new Intent();
-            intent.setClass(this, MainActivity.class);
-            startActivity(intent);
-        }
+//        AuthUser currentUser = Amplify.Auth.getCurrentUser();
+//        if (currentUser == null){
+//            viewPager = findViewById(R.id.pager);
+//            pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+//            viewPager.setAdapter(pagerAdapter);
+//
+//            anim = AnimationUtils.loadAnimation(this,R.anim.o_n_anim);
+//            viewPager.setAdapter(pagerAdapter);
+//        } else {
+//            Intent intent = new Intent();
+//            intent.setClass(this, MainActivity.class);
+//            startActivity(intent);
+//        }
 
         splashImg.animate().translationY(-3600).setDuration(1000).setStartDelay(1600);
         appText.animate().translationY(1600).setDuration(1000).setStartDelay(1600);

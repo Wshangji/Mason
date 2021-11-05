@@ -36,6 +36,7 @@ public class LoginTabFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup)inflater.inflate(R.layout.login_tab_fragment,container,false);
 
+        //获取标签元素
         pass = root.findViewById(R.id.pass);
         login = root.findViewById(R.id.login);
         username = root.findViewById(R.id.user);
@@ -51,24 +52,29 @@ public class LoginTabFragment extends Fragment {
         forgetPass.setAlpha(v);
         login.setAlpha(v);
 
+        //设置加载动画
         username.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
         pass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(700).start();
         forgetPass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
         login.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
 
 
-
+        //登录点击事件
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Amplify.Auth.signIn(
-                        username.getText().toString(),
-                        pass.getText().toString(),
-                        this::onLoginSuccess,
-                        this::onLoginError
-                );
+                //AWS登录验证
+//                Amplify.Auth.signIn(
+//                        username.getText().toString(),
+//                        pass.getText().toString(),
+//                        this::onLoginSuccess,
+//                        this::onLoginError
+//                );
+
+                jumpHome();
             }
 
+            //登录成功事件
             private void onLoginSuccess(AuthSignInResult authSignInResult) {
 
                 runOnUiThread(new Runnable() {
@@ -77,11 +83,10 @@ public class LoginTabFragment extends Fragment {
                         toast.show();
                     }
                 });
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), MainActivity.class);
-                startActivity(intent);
+                jumpHome();
             }
 
+            //登录失败事件
             private void onLoginError(AuthException e) {
                 runOnUiThread(new Runnable() {
                     public void run() {
@@ -91,6 +96,12 @@ public class LoginTabFragment extends Fragment {
                 });
             }
 
+            //跳转主页面
+            private  void jumpHome(){
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
 
         });
 

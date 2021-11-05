@@ -31,6 +31,7 @@ public class Activity_perquestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perquestion);
 
+        //获取页面标签
         submit = findViewById(R.id.pre_submit);
 
         RadioGroup radioGroup1 = (RadioGroup) findViewById(R.id.gender_group);
@@ -39,6 +40,8 @@ public class Activity_perquestion extends AppCompatActivity {
         RadioGroup radioGroup4 = (RadioGroup) findViewById(R.id.ses_group);
         RadioGroup radioGroup5 = (RadioGroup) findViewById(R.id.emp_group);
 
+
+        //获取单选值
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -80,29 +83,30 @@ public class Activity_perquestion extends AppCompatActivity {
         });
 
 
+        //提交事件
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String username = Amplify.Auth.getCurrentUser().getUsername();
-                String userId = Amplify.Auth.getCurrentUser().getUserId();
-                Amplify.DataStore.save(
-                        User.builder().id(userId).name(username).build(),
-                        success -> Log.i("MyAmplifyApp", "Saved a User."),
-                        failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
-                );
+//                String username = Amplify.Auth.getCurrentUser().getUsername();
+//                String userId = Amplify.Auth.getCurrentUser().getUserId();
+//                Amplify.DataStore.save(
+//                        User.builder().id(userId).name(username).build(),
+//                        success -> Log.i("MyAmplifyApp", "Saved a User."),
+//                        failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
+//                );
 
-                Amplify.DataStore.save(
-                        Perception.builder()
-                                .gender(gender)
-                                .race(race)
-                                .ethnicity(ethnicity)
-                                .ses(ses)
-                                .eigenstates(eigenstates)
-                                .build(),
-                        result -> Log.i("MyAmplifyApp", "Created a new post successfully"),
-                        error -> Log.e("MyAmplifyApp",  "Error creating post", error)
-                );
+//                Amplify.DataStore.save(
+//                        Perception.builder()
+//                                .gender(gender)
+//                                .race(race)
+//                                .ethnicity(ethnicity)
+//                                .ses(ses)
+//                                .eigenstates(eigenstates)
+//                                .build(),
+//                        result -> Log.i("MyAmplifyApp", "Created a new post successfully"),
+//                        error -> Log.e("MyAmplifyApp",  "Error creating post", error)
+//                );
 
                 Intent intent = new Intent();
                 intent.setClass(Activity_perquestion.this, MainActivity.class);
