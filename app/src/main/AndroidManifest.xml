@@ -10,7 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mason">
-        <activity android:name=".FinishActivity"></activity>
+        <activity android:name=".queslist.ListActivity10"></activity>
+        <activity android:name=".queslist.ListActivity9" />
+        <activity android:name=".queslist.ListActivity8" />
+        <activity android:name=".queslist.ListActivity7" />
+        <activity android:name=".queslist.ListActivity6" />
+        <activity android:name=".queslist.ListActivity5" />
+        <activity android:name=".queslist.ListActivity1" />
+        <activity android:name=".queslist.ListActivity4" />
+        <activity android:name=".queslist.ListActivity3" />
+        <activity android:name=".queslist.ListActivity2" />
+        <activity android:name=".FinishActivity" />
         <activity android:name=".perquestron.Activity_perquestion" />
         <activity
             android:name=".MainActivity"

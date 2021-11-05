@@ -44,12 +44,12 @@ public class activity_introductory extends AppCompatActivity {
         //用户登录判断
 //        AuthUser currentUser = Amplify.Auth.getCurrentUser();
 //        if (currentUser == null){
-//            viewPager = findViewById(R.id.pager);
-//            pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-//            viewPager.setAdapter(pagerAdapter);
-//
-//            anim = AnimationUtils.loadAnimation(this,R.anim.o_n_anim);
-//            viewPager.setAdapter(pagerAdapter);
+            viewPager = findViewById(R.id.pager);
+            pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+            viewPager.setAdapter(pagerAdapter);
+
+            anim = AnimationUtils.loadAnimation(this,R.anim.o_n_anim);
+            viewPager.setAdapter(pagerAdapter);
 //        } else {
 //            Intent intent = new Intent();
 //            intent.setClass(this, MainActivity.class);

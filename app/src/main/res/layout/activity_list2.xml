@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".queslist.ListActivity2">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -33,61 +33,26 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Do you currently have any of the following conditions that are NOI explained by seasonal allergies, flu, or another health condition?"
+            android:text="Have you tested positive for COVID-19 in the last 10 days?"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Bluish lips or face"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Difficulty breathing"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Pain or pressure in your chest"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- New confusion"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Inability to stay awake"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
         <RadioGroup
-            android:id="@+id/group1"
+            android:id="@+id/group2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/group1_1"
+                android:id="@+id/group2_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes"
                 android:textSize="16dp" />
 
             <RadioButton
-                android:id="@+id/group1_2"
+                android:id="@+id/group2_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -96,12 +61,13 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/ques_next1"
+            android:id="@+id/ques_next2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="#CCCCCC"
             android:text="Next" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
