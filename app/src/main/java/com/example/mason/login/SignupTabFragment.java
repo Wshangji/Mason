@@ -33,6 +33,7 @@ public class SignupTabFragment extends Fragment {
     EditText email,username,password,comfim,code;
     Button signup,send;
     float v = 0;
+    private Boolean flag = true;
 
     @Nullable
     @Override
@@ -79,22 +80,30 @@ public class SignupTabFragment extends Fragment {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (password.getText().toString().equals(comfim.getText().toString())) {
-//                    AuthSignUpOptions options = AuthSignUpOptions.builder()
-//                            .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
-//                            .build();
-//                    Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
-//                            this::signUpSuccess,
-//                            this::signUpError
-//                    );
-//                } else {
-//                    runOnUiThread(new Runnable() {
-//                        public void run() {
-//                            final Toast toast = Toast.makeText(getContext(), "Password input is inconsistent" ,Toast.LENGTH_SHORT);
-//                            toast.show();
-//                        }
-//                    });
-//                }
+                if (password.getText().toString().equals(comfim.getText().toString())) {
+                    if (flag) {
+                        AuthSignUpOptions options = AuthSignUpOptions.builder()
+                                .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
+                                .build();
+
+                        Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
+                                this::signUpSuccess,
+                                this::signUpError
+                        );
+                    } else {
+                        Amplify.Auth.resendUserAttributeConfirmationCode(AuthUserAttributeKey.email(),
+                                result -> Log.i("AuthDemo", "Code was sent again: " + result.toString()),
+                                error -> Log.e("AuthDemo", "Failed to resend code.", error)
+                        );
+                    }
+                } else {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(getContext(), "Password input is inconsistent" ,Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+                }
             }
 
             //验证码发送成功
@@ -117,14 +126,12 @@ public class SignupTabFragment extends Fragment {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                Amplify.Auth.confirmSignUp(
-//                        username.getText().toString(),
-//                        code.getText().toString(),
-//                        this::onJoinSuccess,
-//                        this::OnjoinError
-//                );
-                jumpPersen();
+                Amplify.Auth.confirmSignUp(
+                        username.getText().toString(),
+                        code.getText().toString(),
+                        this::onJoinSuccess,
+                        this::OnjoinError
+                );
             }
 
             //注册失败事件
@@ -137,25 +144,24 @@ public class SignupTabFragment extends Fragment {
                 });
             }
 
-            //注册失败事件
+            //注册成功事件
             private void onJoinSuccess(AuthSignUpResult authSignUpResult) {
+
+                Amplify.Auth.signIn(
+                        username.getText().toString(),
+                        password.getText().toString(),
+                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+
+                //页面跳转
+                jumpPersen();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         final Toast toast = Toast.makeText(getContext(), "Registration Success" ,Toast.LENGTH_LONG);
                         toast.show();
                     }
                 });
-
-                //用户登录事件
-//                Amplify.Auth.signIn(
-//                        username.getText().toString(),
-//                        password.getText().toString(),
-//                        result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
-//                        error -> Log.e("Login Error: \n", error.toString())
-//                );
-
-                //页面跳转
-                jumpPersen();
             }
 
             //用户问题页面跳转
@@ -192,6 +198,7 @@ public class SignupTabFragment extends Fragment {
         public void onFinish() {
             //重新给Button设置文字
             send.setText("Reacquire");
+            flag = false;
             //设置可点击
             send.setClickable(true);
         }

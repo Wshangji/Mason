@@ -7,7 +7,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -21,19 +21,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        app:layout_constraintVertical_bias="0.3"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.34">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Do you currently have any of the following conditions that are NOI explained by seasonal allergies, flu, or another health condition?"
+            android:text="If you are participating in Mason COVID-19 surveillance testing, please answer the following question before taking your test?"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -41,67 +41,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="- Bluish lips or face"
+            android:text="Do you consent and authorize George Mason University (GMU) to conduct collection, testing and analysis of samples from you for the purpose of an approvedCoronavirus (COVID-19) test?"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textStyle="italic" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Difficulty breathing"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Pain or pressure in your chest"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- New confusion"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="- Inability to stay awake"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <RadioGroup
-            android:id="@+id/group1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/group1_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Yes"
-                android:textSize="16dp" />
-
-            <RadioButton
-                android:id="@+id/group1_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="No"
-                android:textSize="16dp" />
-        </RadioGroup>
 
         <Button
             android:id="@+id/ques_next1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#CCCCCC"
-            android:text="Next" />
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#ffcd34"
+            android:text="Yes,I'm read" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -264,8 +264,7 @@
                     android:id="@+id/pre_submit"
                     android:layout_width="165dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#CCCCCC"
-                    android:textColor="@color/black"
+                    android:backgroundTint="#ffcd34"
                     android:textStyle="bold"
                     android:text="Submit" />
             </LinearLayout>

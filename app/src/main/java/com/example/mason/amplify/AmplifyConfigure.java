@@ -14,8 +14,8 @@ public class AmplifyConfigure extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("Mason", "Initialized Amplify");

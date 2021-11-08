@@ -1,6 +1,6 @@
 {
   "auth": {
-    "mason13db62e9": {
+    "mason8e8aefb5": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -27,7 +27,7 @@
     }
   },
   "api": {
-    "Masonapp": {
+    "masonapi": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -35,7 +35,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authmason13db62e9"
+              "userPoolId": "authmason8e8aefb5"
             }
           },
           "additionalAuthenticationProviders": []

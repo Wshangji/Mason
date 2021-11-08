@@ -1,7 +1,7 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.core.model.annotations.BelongsTo;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,23 +27,30 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 })
 public final class Perception implements Model {
   public static final QueryField ID = field("Perception", "id");
+  public static final QueryField NAME = field("Perception", "name");
   public static final QueryField GENDER = field("Perception", "gender");
   public static final QueryField RACE = field("Perception", "race");
   public static final QueryField ETHNICITY = field("Perception", "ethnicity");
   public static final QueryField SES = field("Perception", "ses");
   public static final QueryField EIGENSTATES = field("Perception", "eigenstates");
+  public static final QueryField CREATED_AT = field("Perception", "createdAt");
   public static final QueryField USER = field("Perception", "perceptionUserId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
+  private final @ModelField(targetType="String") String name;
   private final @ModelField(targetType="String") String gender;
   private final @ModelField(targetType="String") String race;
   private final @ModelField(targetType="String") String ethnicity;
   private final @ModelField(targetType="String") String ses;
   private final @ModelField(targetType="String") String eigenstates;
+  private final @ModelField(targetType="AWSDateTime") Temporal.DateTime createdAt;
   private final @ModelField(targetType="User") @BelongsTo(targetName = "perceptionUserId", type = User.class) User user;
-  private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
+  }
+  
+  public String getName() {
+      return name;
   }
   
   public String getGender() {
@@ -66,25 +73,27 @@ public final class Perception implements Model {
       return eigenstates;
   }
   
-  public User getUser() {
-      return user;
-  }
-  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
+  }
+  
+  public User getUser() {
+      return user;
   }
   
   public Temporal.DateTime getUpdatedAt() {
       return updatedAt;
   }
   
-  private Perception(String id, String gender, String race, String ethnicity, String ses, String eigenstates, User user) {
+  private Perception(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt, User user) {
     this.id = id;
+    this.name = name;
     this.gender = gender;
     this.race = race;
     this.ethnicity = ethnicity;
     this.ses = ses;
     this.eigenstates = eigenstates;
+    this.createdAt = createdAt;
     this.user = user;
   }
   
@@ -97,13 +106,14 @@ public final class Perception implements Model {
       } else {
       Perception perception = (Perception) obj;
       return ObjectsCompat.equals(getId(), perception.getId()) &&
+              ObjectsCompat.equals(getName(), perception.getName()) &&
               ObjectsCompat.equals(getGender(), perception.getGender()) &&
               ObjectsCompat.equals(getRace(), perception.getRace()) &&
               ObjectsCompat.equals(getEthnicity(), perception.getEthnicity()) &&
               ObjectsCompat.equals(getSes(), perception.getSes()) &&
               ObjectsCompat.equals(getEigenstates(), perception.getEigenstates()) &&
-              ObjectsCompat.equals(getUser(), perception.getUser()) &&
               ObjectsCompat.equals(getCreatedAt(), perception.getCreatedAt()) &&
+              ObjectsCompat.equals(getUser(), perception.getUser()) &&
               ObjectsCompat.equals(getUpdatedAt(), perception.getUpdatedAt());
       }
   }
@@ -112,13 +122,14 @@ public final class Perception implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
+      .append(getName())
       .append(getGender())
       .append(getRace())
       .append(getEthnicity())
       .append(getSes())
       .append(getEigenstates())
-      .append(getUser())
       .append(getCreatedAt())
+      .append(getUser())
       .append(getUpdatedAt())
       .toString()
       .hashCode();
@@ -129,13 +140,14 @@ public final class Perception implements Model {
     return new StringBuilder()
       .append("Perception {")
       .append("id=" + String.valueOf(getId()) + ", ")
+      .append("name=" + String.valueOf(getName()) + ", ")
       .append("gender=" + String.valueOf(getGender()) + ", ")
       .append("race=" + String.valueOf(getRace()) + ", ")
       .append("ethnicity=" + String.valueOf(getEthnicity()) + ", ")
       .append("ses=" + String.valueOf(getSes()) + ", ")
       .append("eigenstates=" + String.valueOf(getEigenstates()) + ", ")
-      .append("user=" + String.valueOf(getUser()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
+      .append("user=" + String.valueOf(getUser()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
@@ -161,38 +173,46 @@ public final class Perception implements Model {
       null,
       null,
       null,
+      null,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
+      name,
       gender,
       race,
       ethnicity,
       ses,
       eigenstates,
+      createdAt,
       user);
   }
   public interface BuildStep {
     Perception build();
     BuildStep id(String id);
+    BuildStep name(String name);
     BuildStep gender(String gender);
     BuildStep race(String race);
     BuildStep ethnicity(String ethnicity);
     BuildStep ses(String ses);
     BuildStep eigenstates(String eigenstates);
+    BuildStep createdAt(Temporal.DateTime createdAt);
     BuildStep user(User user);
   }
   
 
   public static class Builder implements BuildStep {
     private String id;
+    private String name;
     private String gender;
     private String race;
     private String ethnicity;
     private String ses;
     private String eigenstates;
+    private Temporal.DateTime createdAt;
     private User user;
     @Override
      public Perception build() {
@@ -200,12 +220,20 @@ public final class Perception implements Model {
         
         return new Perception(
           id,
+          name,
           gender,
           race,
           ethnicity,
           ses,
           eigenstates,
+          createdAt,
           user);
+    }
+    
+    @Override
+     public BuildStep name(String name) {
+        this.name = name;
+        return this;
     }
     
     @Override
@@ -239,6 +267,12 @@ public final class Perception implements Model {
     }
     
     @Override
+     public BuildStep createdAt(Temporal.DateTime createdAt) {
+        this.createdAt = createdAt;
+        return this;
+    }
+    
+    @Override
      public BuildStep user(User user) {
         this.user = user;
         return this;
@@ -256,14 +290,21 @@ public final class Perception implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String gender, String race, String ethnicity, String ses, String eigenstates, User user) {
+    private CopyOfBuilder(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt, User user) {
       super.id(id);
-      super.gender(gender)
+      super.name(name)
+        .gender(gender)
         .race(race)
         .ethnicity(ethnicity)
         .ses(ses)
         .eigenstates(eigenstates)
+        .createdAt(createdAt)
         .user(user);
+    }
+    
+    @Override
+     public CopyOfBuilder name(String name) {
+      return (CopyOfBuilder) super.name(name);
     }
     
     @Override
@@ -289,6 +330,11 @@ public final class Perception implements Model {
     @Override
      public CopyOfBuilder eigenstates(String eigenstates) {
       return (CopyOfBuilder) super.eigenstates(eigenstates);
+    }
+    
+    @Override
+     public CopyOfBuilder createdAt(Temporal.DateTime createdAt) {
+      return (CopyOfBuilder) super.createdAt(createdAt);
     }
     
     @Override

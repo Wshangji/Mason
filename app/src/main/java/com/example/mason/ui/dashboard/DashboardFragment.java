@@ -21,11 +21,13 @@ import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 import com.example.mason.LoginActivity;
 import com.example.mason.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     private Button logout;
+    private FloatingActionButton exit;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,16 +35,15 @@ public class DashboardFragment extends Fragment {
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        logout = (Button) root.findViewById(R.id.logout);
-
-        logout.setOnClickListener(new View.OnClickListener() {
+        exit = root.findViewById(R.id.exit);
+        exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Amplify.Auth.signOut(
-//                        AuthSignOutOptions.builder().globalSignOut(true).build(),
-//                        () -> Log.i("AuthQuickstart", "Signed out globally"),
-//                        error -> Log.e("AuthQuickstart", error.toString())
-//                );
+                Amplify.Auth.signOut(
+                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+                        () -> Log.i("AuthQuickstart", "Signed out globally"),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }

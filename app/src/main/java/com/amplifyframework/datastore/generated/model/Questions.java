@@ -34,6 +34,9 @@ public final class Questions implements Model {
   public static final QueryField PRO5 = field("Questions", "pro5");
   public static final QueryField PRO6 = field("Questions", "pro6");
   public static final QueryField PRO7 = field("Questions", "pro7");
+  public static final QueryField PRO8 = field("Questions", "pro8");
+  public static final QueryField PRO9 = field("Questions", "pro9");
+  public static final QueryField PRO10 = field("Questions", "pro10");
   public static final QueryField UPDATED_AT = field("Questions", "updatedAt");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String name;
@@ -44,6 +47,9 @@ public final class Questions implements Model {
   private final @ModelField(targetType="String") String pro5;
   private final @ModelField(targetType="String") String pro6;
   private final @ModelField(targetType="String") String pro7;
+  private final @ModelField(targetType="String") String pro8;
+  private final @ModelField(targetType="String") String pro9;
+  private final @ModelField(targetType="String") String pro10;
   private final @ModelField(targetType="AWSDateTime") Temporal.DateTime updatedAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   public String getId() {
@@ -82,6 +88,18 @@ public final class Questions implements Model {
       return pro7;
   }
   
+  public String getPro8() {
+      return pro8;
+  }
+  
+  public String getPro9() {
+      return pro9;
+  }
+  
+  public String getPro10() {
+      return pro10;
+  }
+  
   public Temporal.DateTime getUpdatedAt() {
       return updatedAt;
   }
@@ -90,7 +108,7 @@ public final class Questions implements Model {
       return createdAt;
   }
   
-  private Questions(String id, String name, String pro1, String pro2, String pro3, String pro4, String pro5, String pro6, String pro7, Temporal.DateTime updatedAt) {
+  private Questions(String id, String name, String pro1, String pro2, String pro3, String pro4, String pro5, String pro6, String pro7, String pro8, String pro9, String pro10, Temporal.DateTime updatedAt) {
     this.id = id;
     this.name = name;
     this.pro1 = pro1;
@@ -100,6 +118,9 @@ public final class Questions implements Model {
     this.pro5 = pro5;
     this.pro6 = pro6;
     this.pro7 = pro7;
+    this.pro8 = pro8;
+    this.pro9 = pro9;
+    this.pro10 = pro10;
     this.updatedAt = updatedAt;
   }
   
@@ -120,6 +141,9 @@ public final class Questions implements Model {
               ObjectsCompat.equals(getPro5(), questions.getPro5()) &&
               ObjectsCompat.equals(getPro6(), questions.getPro6()) &&
               ObjectsCompat.equals(getPro7(), questions.getPro7()) &&
+              ObjectsCompat.equals(getPro8(), questions.getPro8()) &&
+              ObjectsCompat.equals(getPro9(), questions.getPro9()) &&
+              ObjectsCompat.equals(getPro10(), questions.getPro10()) &&
               ObjectsCompat.equals(getUpdatedAt(), questions.getUpdatedAt()) &&
               ObjectsCompat.equals(getCreatedAt(), questions.getCreatedAt());
       }
@@ -137,6 +161,9 @@ public final class Questions implements Model {
       .append(getPro5())
       .append(getPro6())
       .append(getPro7())
+      .append(getPro8())
+      .append(getPro9())
+      .append(getPro10())
       .append(getUpdatedAt())
       .append(getCreatedAt())
       .toString()
@@ -156,6 +183,9 @@ public final class Questions implements Model {
       .append("pro5=" + String.valueOf(getPro5()) + ", ")
       .append("pro6=" + String.valueOf(getPro6()) + ", ")
       .append("pro7=" + String.valueOf(getPro7()) + ", ")
+      .append("pro8=" + String.valueOf(getPro8()) + ", ")
+      .append("pro9=" + String.valueOf(getPro9()) + ", ")
+      .append("pro10=" + String.valueOf(getPro10()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()))
       .append("}")
@@ -185,6 +215,9 @@ public final class Questions implements Model {
       null,
       null,
       null,
+      null,
+      null,
+      null,
       null
     );
   }
@@ -199,6 +232,9 @@ public final class Questions implements Model {
       pro5,
       pro6,
       pro7,
+      pro8,
+      pro9,
+      pro10,
       updatedAt);
   }
   public interface NameStep {
@@ -216,6 +252,9 @@ public final class Questions implements Model {
     BuildStep pro5(String pro5);
     BuildStep pro6(String pro6);
     BuildStep pro7(String pro7);
+    BuildStep pro8(String pro8);
+    BuildStep pro9(String pro9);
+    BuildStep pro10(String pro10);
     BuildStep updatedAt(Temporal.DateTime updatedAt);
   }
   
@@ -230,6 +269,9 @@ public final class Questions implements Model {
     private String pro5;
     private String pro6;
     private String pro7;
+    private String pro8;
+    private String pro9;
+    private String pro10;
     private Temporal.DateTime updatedAt;
     @Override
      public Questions build() {
@@ -245,6 +287,9 @@ public final class Questions implements Model {
           pro5,
           pro6,
           pro7,
+          pro8,
+          pro9,
+          pro10,
           updatedAt);
     }
     
@@ -298,6 +343,24 @@ public final class Questions implements Model {
     }
     
     @Override
+     public BuildStep pro8(String pro8) {
+        this.pro8 = pro8;
+        return this;
+    }
+    
+    @Override
+     public BuildStep pro9(String pro9) {
+        this.pro9 = pro9;
+        return this;
+    }
+    
+    @Override
+     public BuildStep pro10(String pro10) {
+        this.pro10 = pro10;
+        return this;
+    }
+    
+    @Override
      public BuildStep updatedAt(Temporal.DateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
@@ -315,7 +378,7 @@ public final class Questions implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String pro1, String pro2, String pro3, String pro4, String pro5, String pro6, String pro7, Temporal.DateTime updatedAt) {
+    private CopyOfBuilder(String id, String name, String pro1, String pro2, String pro3, String pro4, String pro5, String pro6, String pro7, String pro8, String pro9, String pro10, Temporal.DateTime updatedAt) {
       super.id(id);
       super.name(name)
         .pro1(pro1)
@@ -325,6 +388,9 @@ public final class Questions implements Model {
         .pro5(pro5)
         .pro6(pro6)
         .pro7(pro7)
+        .pro8(pro8)
+        .pro9(pro9)
+        .pro10(pro10)
         .updatedAt(updatedAt);
     }
     
@@ -366,6 +432,21 @@ public final class Questions implements Model {
     @Override
      public CopyOfBuilder pro7(String pro7) {
       return (CopyOfBuilder) super.pro7(pro7);
+    }
+    
+    @Override
+     public CopyOfBuilder pro8(String pro8) {
+      return (CopyOfBuilder) super.pro8(pro8);
+    }
+    
+    @Override
+     public CopyOfBuilder pro9(String pro9) {
+      return (CopyOfBuilder) super.pro9(pro9);
+    }
+    
+    @Override
+     public CopyOfBuilder pro10(String pro10) {
+      return (CopyOfBuilder) super.pro10(pro10);
     }
     
     @Override

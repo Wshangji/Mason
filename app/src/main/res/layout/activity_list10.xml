@@ -24,7 +24,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.38"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,17 +39,26 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/group10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="55dp"
             android:inputType="phone"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:text="The health department may need to contact you if an investigation determines that youwere a close contact (potentially exposed) of someone who has tested positive for COVID-19"
             />
 
         <Button
             android:id="@+id/ques_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="#ffcd34"
             android:text="Submit" />

@@ -22,13 +22,15 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the User type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Users", authRules = {
-  @AuthRule(allow = AuthStrategy.OWNER, ownerField = "owner", identityClaim = "cognito:username", provider = "userPools", operations = { ModelOperation.CREATE, ModelOperation.READ })
+  @AuthRule(allow = AuthStrategy.OWNER, ownerField = "owner", identityClaim = "cognito:username", provider = "userPools", operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.READ })
 })
 public final class User implements Model {
   public static final QueryField ID = field("User", "id");
   public static final QueryField NAME = field("User", "name");
+  public static final QueryField IS_AGREE = field("User", "isAgree");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String") String name;
+  private final @ModelField(targetType="Boolean") Boolean isAgree;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -39,6 +41,10 @@ public final class User implements Model {
       return name;
   }
   
+  public Boolean getIsAgree() {
+      return isAgree;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -47,9 +53,10 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String name) {
+  private User(String id, String name, Boolean isAgree) {
     this.id = id;
     this.name = name;
+    this.isAgree = isAgree;
   }
   
   @Override
@@ -62,6 +69,7 @@ public final class User implements Model {
       User user = (User) obj;
       return ObjectsCompat.equals(getId(), user.getId()) &&
               ObjectsCompat.equals(getName(), user.getName()) &&
+              ObjectsCompat.equals(getIsAgree(), user.getIsAgree()) &&
               ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
       }
@@ -72,6 +80,7 @@ public final class User implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getName())
+      .append(getIsAgree())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -84,6 +93,7 @@ public final class User implements Model {
       .append("User {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("name=" + String.valueOf(getName()) + ", ")
+      .append("isAgree=" + String.valueOf(getIsAgree()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -105,36 +115,47 @@ public final class User implements Model {
   public static User justId(String id) {
     return new User(
       id,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      name);
+      name,
+      isAgree);
   }
   public interface BuildStep {
     User build();
     BuildStep id(String id);
     BuildStep name(String name);
+    BuildStep isAgree(Boolean isAgree);
   }
   
 
   public static class Builder implements BuildStep {
     private String id;
     private String name;
+    private Boolean isAgree;
     @Override
      public User build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new User(
           id,
-          name);
+          name,
+          isAgree);
     }
     
     @Override
      public BuildStep name(String name) {
         this.name = name;
+        return this;
+    }
+    
+    @Override
+     public BuildStep isAgree(Boolean isAgree) {
+        this.isAgree = isAgree;
         return this;
     }
     
@@ -150,14 +171,20 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name) {
+    private CopyOfBuilder(String id, String name, Boolean isAgree) {
       super.id(id);
-      super.name(name);
+      super.name(name)
+        .isAgree(isAgree);
     }
     
     @Override
      public CopyOfBuilder name(String name) {
       return (CopyOfBuilder) super.name(name);
+    }
+    
+    @Override
+     public CopyOfBuilder isAgree(Boolean isAgree) {
+      return (CopyOfBuilder) super.isAgree(isAgree);
     }
   }
   

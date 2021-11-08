@@ -21,6 +21,9 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.User;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
+import com.example.mason.perquestron.Activity_perquestion;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread;
 
@@ -30,7 +33,6 @@ public class LoginTabFragment extends Fragment {
     TextView forgetPass;
     Button login;
     float v = 0;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,14 +66,12 @@ public class LoginTabFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //AWS登录验证
-//                Amplify.Auth.signIn(
-//                        username.getText().toString(),
-//                        pass.getText().toString(),
-//                        this::onLoginSuccess,
-//                        this::onLoginError
-//                );
-
-                jumpHome();
+                Amplify.Auth.signIn(
+                        username.getText().toString(),
+                        pass.getText().toString(),
+                        this::onLoginSuccess,
+                        this::onLoginError
+                );
             }
 
             //登录成功事件
@@ -98,11 +98,24 @@ public class LoginTabFragment extends Fragment {
 
             //跳转主页面
             private  void jumpHome(){
+                Amplify.DataStore.query(User.class,
+                        allPosts -> {
+                            while (allPosts.hasNext()) {
+                                User user = allPosts.next();
+//                                System.out.println(user.getName());
+                                if (user.getName().equals(username.getText().toString())) {
+                                    Intent intent = new Intent();
+                                    intent.setClass(getActivity(), MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        },
+                        failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+                );
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), MainActivity.class);
+                intent.setClass(getActivity(), Activity_perquestion.class);
                 startActivity(intent);
             }
-
         });
 
         return root;

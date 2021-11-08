@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.amplifyframework.auth.AuthUser;
+import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Perception;
 import com.amplifyframework.datastore.generated.model.User;
@@ -22,6 +22,8 @@ import com.example.mason.R;
 
 public class Activity_perquestion extends AppCompatActivity {
     private Button submit;
+    private String username;
+    private String userId;
 
     private String gender = null;
     private String race = null;
@@ -45,11 +47,11 @@ public class Activity_perquestion extends AppCompatActivity {
 
         //弹出框
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage("gsedhrsedhsedh");
+        builder1.setMessage(getResources().getText(R.string.content));
         //点击空白不消失
         builder1.setCancelable(false);
         builder1.setPositiveButton(
-                "Yes",
+                "Yes,I'm agree",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -59,6 +61,11 @@ public class Activity_perquestion extends AppCompatActivity {
                 "No",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        Amplify.Auth.signOut(
+                                AuthSignOutOptions.builder().globalSignOut(true).build(),
+                                () -> Log.i("AuthQuickstart", "Signed out globally"),
+                                error -> Log.e("AuthQuickstart", error.toString())
+                        );
                         Intent intent = new Intent(Activity_perquestion.this, LoginActivity.class);
                         startActivity(intent);
                         dialog.cancel();
@@ -66,7 +73,6 @@ public class Activity_perquestion extends AppCompatActivity {
                 });
 
         AlertDialog alert11 = builder1.create();
-
         alert11.show();
 
 
@@ -116,26 +122,29 @@ public class Activity_perquestion extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                String username = Amplify.Auth.getCurrentUser().getUsername();
-//                String userId = Amplify.Auth.getCurrentUser().getUserId();
-//                Amplify.DataStore.save(
-//                        User.builder().id(userId).name(username).build(),
-//                        success -> Log.i("MyAmplifyApp", "Saved a User."),
-//                        failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
-//                );
-
-//                Amplify.DataStore.save(
-//                        Perception.builder()
-//                                .gender(gender)
-//                                .race(race)
-//                                .ethnicity(ethnicity)
-//                                .ses(ses)
-//                                .eigenstates(eigenstates)
-//                                .build(),
-//                        result -> Log.i("MyAmplifyApp", "Created a new post successfully"),
-//                        error -> Log.e("MyAmplifyApp",  "Error creating post", error)
-//                );
+                username = Amplify.Auth.getCurrentUser().getUsername();
+                userId = Amplify.Auth.getCurrentUser().getUserId();
+                Amplify.DataStore.save(
+                        User.builder()
+                                .id(userId)
+                                .name(username)
+                                .isAgree(true)
+                                .build(),
+                        success -> Log.i("MyAmplifyApp", "Saved a User."),
+                        failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
+                );
+                Amplify.DataStore.save(
+                        Perception.builder()
+                                .name(username)
+                                .gender(gender)
+                                .race(race)
+                                .ethnicity(ethnicity)
+                                .ses(ses)
+                                .eigenstates(eigenstates)
+                                .build(),
+                        result -> Log.i("MyAmplifyApp", "Created a new post successfully"),
+                        error -> Log.e("MyAmplifyApp",  "Error creating post", error)
+                );
 
                 Intent intent = new Intent();
                 intent.setClass(Activity_perquestion.this, MainActivity.class);

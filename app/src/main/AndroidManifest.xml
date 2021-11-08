@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mason">
-        <activity android:name=".queslist.ListActivity10"></activity>
+        <activity android:name=".login.ConfirmedActivity"></activity>
+        <activity android:name=".queslist.ListActivity10" />
         <activity android:name=".queslist.ListActivity9" />
         <activity android:name=".queslist.ListActivity8" />
         <activity android:name=".queslist.ListActivity7" />
@@ -33,6 +34,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".util.ReminderBoard"
+            android:process=":remote" />
     </application>
 
 </manifest>

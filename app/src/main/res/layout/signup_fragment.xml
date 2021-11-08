@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send"
-            android:textColor="@color/white"
+            android:backgroundTint="#ffcd34"
             />
 
     </LinearLayout>
@@ -111,7 +111,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Signup"
-        android:textColor="@color/white"
+        android:backgroundTint="#ffcd34"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
