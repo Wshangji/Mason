@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".queslist.ListActivity9">
+    tools:context=".queslist.Ques1Activity">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -21,52 +21,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintVertical_bias="0.34"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9">
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.35"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Have you arrived from traveling outside the United States in the last 10 days?"
-            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="On a scale of 1-10, how hopeful are you about achieving your academic goals this semester (1-not at all hopeful, 10-extremely hopeful)?"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            />
 
-        <RadioGroup
-            android:id="@+id/group9"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/group9_1"
-                android:layout_width="wrap_content"
+            android:layout_margin="25dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes"
-                android:textSize="16dp" />
-
-            <RadioButton
-                android:id="@+id/group9_2"
-                android:layout_width="wrap_content"
+                android:text="1"
+                android:textSize="18dp"
+                android:gravity="center"
+                />
+            <SeekBar
+                android:id="@+id/ques_seekbar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="No"
-                android:textSize="16dp" />
-        </RadioGroup>
+                android:min="1"
+                android:max="10"
+                />
+        </LinearLayout>
 
         <Button
-            android:id="@+id/ques_next9"
+            android:id="@+id/ques_next1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#ffcd34"
-            android:text="Next" />
+            android:text="Next"
+            android:backgroundTint="@color/yellow"
+            />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

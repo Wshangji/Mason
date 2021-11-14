@@ -14,7 +14,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mason.R;
-import com.example.mason.queslist.ListActivity1;
 
 public class HomeFragment extends Fragment {
 

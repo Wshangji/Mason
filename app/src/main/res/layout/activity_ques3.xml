@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".queslist.ListActivity4">
+    tools:context=".queslist.Ques3Activity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -21,66 +21,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintVertical_bias="0.34"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.35"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="In the last 14 days,have you been in close contant(less than 6 feet for 15 minutes or more) with"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="During this week, with whom did you have the most interaction? Ex.best friend, sister, mother, write in option"
+            android:textSize="20dp"
             android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            />
+
+        <EditText
+            android:id="@+id/ques3_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
 
         <TextView
+            android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="- Someone 2 days before or 10 days after they tested positive or were diagnosed with COVID-19,or"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp"
+            android:text="Were these interactions mostly virtual or in person?"
+            android:textSize="20dp"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            />
 
-        <TextView
+        <EditText
+            android:id="@+id/ques3_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="- Someone who had/has COVID-19 symptoms and is currently waiting for COVID-19 test results?"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-
-
-        <RadioGroup
-            android:id="@+id/group4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <RadioButton
-                android:id="@+id/group4_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No"
-                android:textSize="15dp"
-                />
-            <RadioButton
-                android:id="@+id/group4_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Yes-This exposure occurred at work and my work requires me to wear PPE and interact with potential or positive COVID-19 cases"
-                />
-        </RadioGroup>
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
 
         <Button
-            android:id="@+id/ques_next4"
+            android:id="@+id/ques_next3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#ffcd34"
-            android:text="Next" />
+            android:text="Next"
+            android:backgroundTint="@color/yellow"
+            />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
