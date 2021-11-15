@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.amplifyframework.auth.AuthException;
 import com.amplifyframework.auth.result.AuthSignInResult;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.query.Where;
 import com.amplifyframework.datastore.generated.model.User;
 import com.example.mason.MainActivity;
 import com.example.mason.R;
@@ -66,13 +67,12 @@ public class LoginTabFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //AWS登录验证
-//                Amplify.Auth.signIn(
-//                        username.getText().toString(),
-//                        pass.getText().toString(),
-//                        this::onLoginSuccess,
-//                        this::onLoginError
-//                );
-                jumpHome();
+                Amplify.Auth.signIn(
+                        username.getText().toString(),
+                        pass.getText().toString(),
+                        this::onLoginSuccess,
+                        this::onLoginError
+                );
             }
 
             //登录成功事件
@@ -99,22 +99,8 @@ public class LoginTabFragment extends Fragment {
 
             //跳转主页面
             private  void jumpHome(){
-//                Amplify.DataStore.query(User.class,
-//                        allPosts -> {
-//                            while (allPosts.hasNext()) {
-//                                User user = allPosts.next();
-////                                System.out.println(user.getName());
-//                                if (user.getName().equals(username.getText().toString())) {
-                                    Intent intent = new Intent();
-                                    intent.setClass(getActivity(), MainActivity.class);
-//                                    startActivity(intent);
-//                                }
-//                            }
-//                        },
-//                        failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-//                );
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), Activity_perquestion.class);
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });

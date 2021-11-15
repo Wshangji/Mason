@@ -1,7 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
 import com.amplifyframework.core.model.temporal.Temporal;
-import com.amplifyframework.core.model.annotations.BelongsTo;
 
 import java.util.List;
 import java.util.UUID;
@@ -34,7 +33,6 @@ public final class Perception implements Model {
   public static final QueryField SES = field("Perception", "ses");
   public static final QueryField EIGENSTATES = field("Perception", "eigenstates");
   public static final QueryField CREATED_AT = field("Perception", "createdAt");
-  public static final QueryField USER = field("Perception", "perceptionUserId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String") String name;
   private final @ModelField(targetType="String") String gender;
@@ -43,7 +41,6 @@ public final class Perception implements Model {
   private final @ModelField(targetType="String") String ses;
   private final @ModelField(targetType="String") String eigenstates;
   private final @ModelField(targetType="AWSDateTime") Temporal.DateTime createdAt;
-  private final @ModelField(targetType="User") @BelongsTo(targetName = "perceptionUserId", type = User.class) User user;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
@@ -77,15 +74,11 @@ public final class Perception implements Model {
       return createdAt;
   }
   
-  public User getUser() {
-      return user;
-  }
-  
   public Temporal.DateTime getUpdatedAt() {
       return updatedAt;
   }
   
-  private Perception(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt, User user) {
+  private Perception(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt) {
     this.id = id;
     this.name = name;
     this.gender = gender;
@@ -94,7 +87,6 @@ public final class Perception implements Model {
     this.ses = ses;
     this.eigenstates = eigenstates;
     this.createdAt = createdAt;
-    this.user = user;
   }
   
   @Override
@@ -113,7 +105,6 @@ public final class Perception implements Model {
               ObjectsCompat.equals(getSes(), perception.getSes()) &&
               ObjectsCompat.equals(getEigenstates(), perception.getEigenstates()) &&
               ObjectsCompat.equals(getCreatedAt(), perception.getCreatedAt()) &&
-              ObjectsCompat.equals(getUser(), perception.getUser()) &&
               ObjectsCompat.equals(getUpdatedAt(), perception.getUpdatedAt());
       }
   }
@@ -129,7 +120,6 @@ public final class Perception implements Model {
       .append(getSes())
       .append(getEigenstates())
       .append(getCreatedAt())
-      .append(getUser())
       .append(getUpdatedAt())
       .toString()
       .hashCode();
@@ -147,7 +137,6 @@ public final class Perception implements Model {
       .append("ses=" + String.valueOf(getSes()) + ", ")
       .append("eigenstates=" + String.valueOf(getEigenstates()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
-      .append("user=" + String.valueOf(getUser()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
@@ -174,7 +163,6 @@ public final class Perception implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
@@ -187,8 +175,7 @@ public final class Perception implements Model {
       ethnicity,
       ses,
       eigenstates,
-      createdAt,
-      user);
+      createdAt);
   }
   public interface BuildStep {
     Perception build();
@@ -200,7 +187,6 @@ public final class Perception implements Model {
     BuildStep ses(String ses);
     BuildStep eigenstates(String eigenstates);
     BuildStep createdAt(Temporal.DateTime createdAt);
-    BuildStep user(User user);
   }
   
 
@@ -213,7 +199,6 @@ public final class Perception implements Model {
     private String ses;
     private String eigenstates;
     private Temporal.DateTime createdAt;
-    private User user;
     @Override
      public Perception build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -226,8 +211,7 @@ public final class Perception implements Model {
           ethnicity,
           ses,
           eigenstates,
-          createdAt,
-          user);
+          createdAt);
     }
     
     @Override
@@ -272,12 +256,6 @@ public final class Perception implements Model {
         return this;
     }
     
-    @Override
-     public BuildStep user(User user) {
-        this.user = user;
-        return this;
-    }
-    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -290,7 +268,7 @@ public final class Perception implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt, User user) {
+    private CopyOfBuilder(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt) {
       super.id(id);
       super.name(name)
         .gender(gender)
@@ -298,8 +276,7 @@ public final class Perception implements Model {
         .ethnicity(ethnicity)
         .ses(ses)
         .eigenstates(eigenstates)
-        .createdAt(createdAt)
-        .user(user);
+        .createdAt(createdAt);
     }
     
     @Override
@@ -335,11 +312,6 @@ public final class Perception implements Model {
     @Override
      public CopyOfBuilder createdAt(Temporal.DateTime createdAt) {
       return (CopyOfBuilder) super.createdAt(createdAt);
-    }
-    
-    @Override
-     public CopyOfBuilder user(User user) {
-      return (CopyOfBuilder) super.user(user);
     }
   }
   

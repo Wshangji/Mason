@@ -135,6 +135,7 @@ public class Activity_perquestion extends AppCompatActivity {
                 );
                 Amplify.DataStore.save(
                         Perception.builder()
+                                .id(userId)
                                 .name(username)
                                 .gender(gender)
                                 .race(race)

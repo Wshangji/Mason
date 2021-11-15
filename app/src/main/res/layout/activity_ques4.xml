@@ -35,62 +35,19 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="What has been most stressful, if anything, for you during this week?"
+            android:text="Were these interactions mostly virtual or in person?"
             android:textSize="20dp"
             android:textColor="@color/black"
             />
 
-        <RadioGroup
-            android:id="@+id/ques4_group"
+        <EditText
+            android:id="@+id/ques4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-            <RadioButton
-                android:id="@+id/ques4_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Classwork"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques4_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Job"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques4_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Finances"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques4_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Relationship"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques4_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Family"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques4_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Friends"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques4_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Other"
-                android:textSize="16dp" />
-        </RadioGroup>
+            android:inputType="text"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
 
         <Button
             android:id="@+id/ques_next4"

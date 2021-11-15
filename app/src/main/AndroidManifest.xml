@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mason">
-        <activity android:name=".queslist.Ques5Activity"></activity>
+        <activity android:name=".queslist.Ques9Activity"></activity>
+        <activity android:name=".queslist.Ques8Activity" />
+        <activity android:name=".queslist.Ques7Activity" />
+        <activity android:name=".queslist.Ques6_2Activity" />
+        <activity android:name=".queslist.Ques6_1Activity" />
+        <activity android:name=".queslist.Ques5Activity" />
         <activity android:name=".queslist.Ques4Activity" />
         <activity android:name=".queslist.Ques3Activity" />
         <activity android:name=".queslist.Ques2Activity" />

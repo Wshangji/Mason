@@ -41,53 +41,69 @@
             />
 
         <CheckBox
+            android:id="@+id/ck_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="interaction with family"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="interaction with significant other"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="being around pets"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="virtual mental health services"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="involvement with campus student groups"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="increased privacy"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="increased financial support from your institution"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
         <CheckBox
+            android:id="@+id/ck_8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="other"
             android:textSize="16dp"
-            />
+            android:onClick="onCheckboxClicked"
+            tools:ignore="OnClick" />
 
         <Button
             android:id="@+id/ques_next2"

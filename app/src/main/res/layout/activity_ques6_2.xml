@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".queslist.Ques3Activity">
+    tools:context=".queslist.Ques6_2Activity">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -35,22 +35,35 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="During this week, with whom did you have the most interaction? Ex.best friend, sister, mother, write in option"
+            android:text="Have you spoken with mental health professional this week?"
             android:textSize="20dp"
             android:textColor="@color/black"
             />
 
-        <EditText
-            android:id="@+id/ques3"
+        <RadioGroup
+            android:id="@+id/ques6_2_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:inputType="text"
-            android:layout_marginRight="15dp"
-            />
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/ques5_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="16dp" />
+            <RadioButton
+                android:id="@+id/ques5_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="16dp" />
+        </RadioGroup>
 
         <Button
-            android:id="@+id/ques_next3"
+            android:id="@+id/ques_next6_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
