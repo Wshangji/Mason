@@ -27,7 +27,8 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     private Button logout;
-    private FloatingActionButton exit;
+//    private FloatingActionButton exit;
+    private TextView userName;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,10 +36,13 @@ public class DashboardFragment extends Fragment {
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        exit = root.findViewById(R.id.exit);
-        exit.setOnClickListener(new View.OnClickListener() {
+        logout = root.findViewById(R.id.user_exit);
+        userName = root.findViewById(R.id.user_name);
+        userName.setText(Amplify.Auth.getCurrentUser().getUsername());
+
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Amplify.Auth.signOut(
                         AuthSignOutOptions.builder().globalSignOut(true).build(),
                         () -> Log.i("AuthQuickstart", "Signed out globally"),

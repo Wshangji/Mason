@@ -31,7 +31,7 @@ public class FinishActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         long timeAtButtonClick = System.currentTimeMillis();
-        long tenSecondsInMillis = 1000 * 20;
+        long tenSecondsInMillis = 1000 * 60 * 24 * 7;
         alarmManager.set(AlarmManager.RTC_WAKEUP,
                 timeAtButtonClick+tenSecondsInMillis,
                 pendingIntent);
