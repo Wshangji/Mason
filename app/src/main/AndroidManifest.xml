@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mason">
+    package="com.gradwyn.mason">
 
     <application
-        android:name=".amplify.AmplifyConfigure"
+        android:name="com.gradwyn.mason.amplify.AmplifyConfigure"
         android:allowBackup="true"
         android:icon="@mipmap/ic_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mason">
-        <activity android:name=".queslist.Ques9Activity"></activity>
-        <activity android:name=".queslist.Ques8Activity" />
-        <activity android:name=".queslist.Ques7Activity" />
-        <activity android:name=".queslist.Ques6_2Activity" />
-        <activity android:name=".queslist.Ques6_1Activity" />
-        <activity android:name=".queslist.Ques5Activity" />
-        <activity android:name=".queslist.Ques4Activity" />
-        <activity android:name=".queslist.Ques3Activity" />
-        <activity android:name=".queslist.Ques2Activity" />
-        <activity android:name=".queslist.Ques1Activity" />
-        <activity android:name=".login.ConfirmedActivity" />
-        <activity android:name=".FinishActivity" />
-        <activity android:name=".perquestron.Activity_perquestion" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques9Activity"></activity>
+        <activity android:name="com.gradwyn.mason.queslist.Ques8Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques7Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques6_2Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques6_1Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques5Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques4Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques3Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques2Activity" />
+        <activity android:name="com.gradwyn.mason.queslist.Ques1Activity" />
+        <activity android:name="com.gradwyn.mason.login.ConfirmedActivity" />
+        <activity android:name="com.gradwyn.mason.FinishActivity" />
+        <activity android:name="com.gradwyn.mason.perquestron.Activity_perquestion" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.gradwyn.mason.MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".activity_introductory">
+        <activity android:name="com.gradwyn.mason.LoginActivity" />
+        <activity android:name="com.gradwyn.mason.activity_introductory">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +36,7 @@
         </activity>
 
         <receiver
-            android:name=".util.ReminderBoard"
+            android:name="com.gradwyn.mason.util.ReminderBoard"
             android:process=":remote" />
     </application>
 
