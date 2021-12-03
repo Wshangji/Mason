@@ -150,6 +150,7 @@ public class Activity_perquestion extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(Activity_perquestion.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

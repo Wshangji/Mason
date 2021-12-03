@@ -45,31 +45,29 @@ public class Ques6_1Activity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-                        Amplify.DataStore.query(Perception.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
-                                matches -> {
-                                    if (matches.hasNext()) {
-                                        if (matches.next().getEigenstates()!=null && !matches.next().getEigenstates().equals("Not currently employed")){
+//                        Amplify.DataStore.query(
+//                                Perception.class,
+//                                Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
+//                                matches -> {
+//                                    if (matches.hasNext()) {
+//                                        if (matches.next().getEigenstates()!=null && !matches.next().getEigenstates().equals("Not currently employed")){
                                             Intent intent = new Intent(Ques6_1Activity.this, Ques7Activity.class);
                                             startActivity(intent);
                                             finish();
-                                        } else {
-                                            Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-//                                        runOnUiThread(new Runnable() {
-//                                            public void run() {
-//                                                final Toast toast = Toast.makeText(Ques6_1Activity.this, "matches.next().getEigenstates()",Toast.LENGTH_LONG);
-//                                                toast.show();
-//                                            }
-//                                        });
-                                    }
-                                },
-                                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-                        );
+//                                        } else {
+//                                            Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
+//                                            startActivity(intent);
+//                                            finish();
+//                                        }
+//                                    }
+//                                },
+//                                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+//                        );
                     }
                 } else {
-                    Amplify.DataStore.query(Perception.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
+                    Amplify.DataStore.query(
+                            Perception.class,
+                            Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
                             matches -> {
                                 if (matches.hasNext()) {
                                     if (matches.next().getEigenstates()!=null && !matches.next().getEigenstates().equals("Not currently employed")){

@@ -1,5 +1,11 @@
 package com.gradwyn.mason;
 
+import android.util.Log;
+
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.query.Where;
+import com.amplifyframework.datastore.generated.model.Perception;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +17,17 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void test() {
+        Amplify.DataStore.query(
+                Perception.class,
+                Where.matches(Perception.NAME.eq("ceshi")),
+                items -> {
+                    while (items.hasNext()) {
+                        Perception table = items.next();
+                        System.out.println(table.toString());
+                    }
+                },
+                failure -> Log.e("error", "Query failed.", failure)
+        );
     }
 }

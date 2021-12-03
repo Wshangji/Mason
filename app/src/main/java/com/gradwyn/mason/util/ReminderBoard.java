@@ -7,6 +7,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.amplifyframework.core.Amplify;
 import com.gradwyn.mason.R;
 
 public class ReminderBoard extends BroadcastReceiver {
@@ -16,8 +17,8 @@ public class ReminderBoard extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"notifyLemubit")
                 .setSmallIcon(R.drawable.ic_message_24)
-                .setContentTitle("Notification")
-                .setContentText("Please complete the questionnaire in time!")
+                .setContentTitle("Hi,"+ Amplify.Auth.getCurrentUser().getUsername()+"!")
+                .setContentText("Don’t forget to check in on Gradwyn for your weekly survey. You increase your earnings with each survey you complete.")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);

@@ -31,98 +31,107 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
             android:orientation="vertical"
             >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="How many times has the following happened within the last week."
+                android:textSize="23dp"
+                android:textColor="@color/black"
+                />
+
 
             <TextView
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
                 android:text="My job took up time that l'd rather spend at school or on school work."
-                android:textSize="20dp"
+                android:textSize="19dp"
                 android:textColor="@color/black"
                 />
 
-            <EditText
-                android:id="@+id/ques7_1"
+            <Spinner
+                android:id="@+id/spinner_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                />
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
 
             <TextView
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_marginTop="25dp"
                 android:text="l've spent less time studying and doing homework because of my job."
-                android:textSize="20dp"
+                android:textSize="19dp"
                 android:textColor="@color/black"
                 />
 
-            <EditText
-                android:id="@+id/ques7_3"
+            <Spinner
+                android:id="@+id/spinner_2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                />
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
 
             <TextView
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_marginTop="25dp"
                 android:text="Because of my job, I go to school tired."
-                android:textSize="20dp"
+                android:textSize="19dp"
                 android:textColor="@color/black"
                 />
 
-            <EditText
-                android:id="@+id/ques7_4"
+            <Spinner
+                android:id="@+id/spinner_3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                />
+                android:layout_height="37dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"/>
 
             <TextView
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_marginTop="25dp"
                 android:text="My job demands and responsibilities interfered with my school work."
-                android:textSize="20dp"
+                android:textSize="19dp"
                 android:textColor="@color/black"
                 />
 
-            <EditText
-                android:id="@+id/ques7_2"
+            <Spinner
+                android:id="@+id/spinner_4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                />
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
 
             <Button
                 android:id="@+id/ques_next7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
                 android:layout_gravity="center_horizontal"
                 android:text="Next"
                 android:backgroundTint="@color/yellow"

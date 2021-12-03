@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +22,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.model.query.Where;
+import com.amplifyframework.datastore.generated.model.Perception;
+import com.amplifyframework.datastore.generated.model.Questions;
 import com.amplifyframework.datastore.generated.model.User;
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.perquestron.Activity_perquestion;
 import com.gradwyn.mason.queslist.Ques2Activity;
+import com.gradwyn.mason.queslist.Ques6_1Activity;
+import com.gradwyn.mason.queslist.Ques7Activity;
+import com.gradwyn.mason.queslist.Ques8Activity;
 import com.gradwyn.mason.util.Contexts;
 import com.gradwyn.mason.util.NotificationUtil;
 
@@ -63,10 +69,26 @@ import com.gradwyn.mason.util.NotificationUtil;
             }
         });
 
+//        Amplify.DataStore.query(
+//                Questions.class,
+//                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
+//                matches -> {
+//                    if (matches.hasNext()) {
+//                        Questions questions = matches.next();
+//                        Toast.makeText(getActivity(),"date:"+questions.getCreatedAt(),Toast.LENGTH_SHORT).show();
+//                        System.out.println(questions.getCreatedAt());
+//                    }
+//                },
+////                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+//                failure -> Toast.makeText(getActivity(),"failed:"+failure,Toast.LENGTH_SHORT).show()
+//
+//        );
+
         //判断是否同意许可协议
         Amplify.DataStore.query(User.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
                 matches -> {
                     if (matches.hasNext()) {
+                        Toast.makeText(getActivity(),"lists",Toast.LENGTH_SHORT).show();
                         if (!matches.next().getIsAgree()){
                             Intent intent = new Intent();
                             intent.setClass(getActivity(), Activity_perquestion.class);
@@ -78,38 +100,13 @@ import com.gradwyn.mason.util.NotificationUtil;
                         startActivity(intent);
                     }
                 },
-                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+//                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+                failure -> Toast.makeText(getActivity(),"error:"+failure,Toast.LENGTH_SHORT).show()
                 );
 
+        // 判断是否获取通知
         if (!NotificationUtil.isNotifyEnabled(getActivity())) {
-//            Intent localIntent = new Intent();
-//            //直接跳转到应用通知设置的代码：
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {//8.0及以上
-//                localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-//                localIntent.setData(Uri.fromParts("package", getPackageName(), null));
-//            } else if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0以上到8.0以下
-//                localIntent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-//                localIntent.putExtra("app_package", getPackageName());
-//                localIntent.putExtra("app_uid", getApplicationInfo().uid);
-//            } else if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {//4.4
-//                localIntent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-//                localIntent.addCategory(Intent.CATEGORY_DEFAULT);
-//                localIntent.setData(Uri.parse("package:" + getPackageName()));
-//            } else {
-//                //4.4以下没有从app跳转到应用通知设置页面的Action，可考虑跳转到应用详情页面,
-//                localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                if (Build.VERSION.SDK_INT >= 9) {
-//                    localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-//                    localIntent.setData(Uri.fromParts("package", getPackageName(), null));
-//                } else if (Build.VERSION.SDK_INT <= 8) {
-//                    localIntent.setAction(Intent.ACTION_VIEW);
-//                    localIntent.setClassName("com.android.settings", "com.android.setting.InstalledAppDetails");
-//                    localIntent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
-//                }
-//            }
-//            startActivity(localIntent);
-
+            NotificationUtil.requestNotify(getActivity());
         }
 
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

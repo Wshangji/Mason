@@ -64,8 +64,11 @@ public class LoginTabFragment extends Fragment {
                 String uname = username.getText().toString();
                 String upass = pass.getText().toString();
 
-                if (uname=="" || upass=="") {
-                    Toast toast = Toast.makeText(getContext(), "Completing the incomplete information, please completed" ,Toast.LENGTH_SHORT);
+                if (uname=="" || uname.isEmpty()) {
+                    Toast toast = Toast.makeText(getContext(), "Please enter username" ,Toast.LENGTH_SHORT);
+                    toast.show();
+                } else if (upass=="" || upass.isEmpty()){
+                    Toast toast = Toast.makeText(getContext(), "Please enter password" ,Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     //AWS登录验证

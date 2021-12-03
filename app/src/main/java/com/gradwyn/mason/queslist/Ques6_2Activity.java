@@ -42,7 +42,9 @@ public class Ques6_2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Amplify.DataStore.query(Perception.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
+                Amplify.DataStore.query(
+                        Perception.class,
+                        Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
                         matches -> {
                             if (matches.hasNext()) {
                                 if (matches.next().getEigenstates()!=null && !matches.next().getEigenstates().equals("Not currently employed")){

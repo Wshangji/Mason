@@ -17,8 +17,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+
 import com.gradwyn.mason.LoginActivity;
 import com.gradwyn.mason.R;
+
 
 public class DashboardFragment extends Fragment {
 
@@ -56,6 +58,10 @@ public class DashboardFragment extends Fragment {
                         () -> Log.i("AuthQuickstart", "Signed out globally"),
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
+//                Amplify.DataStore.clear(
+//                        () -> Log.i("MyAmplifyApp", "DataStore is cleared."),
+//                        failure -> Log.e("MyAmplifyApp", "Failed to clear DataStore.")
+//                );
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }

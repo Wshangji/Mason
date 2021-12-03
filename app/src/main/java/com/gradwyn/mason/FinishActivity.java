@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.amplifyframework.core.Amplify;
 import com.gradwyn.mason.util.ReminderBoard;
 
 public class FinishActivity extends AppCompatActivity {
@@ -27,7 +28,8 @@ public class FinishActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         long timeAtButtonClick = System.currentTimeMillis();
-        long tenSecondsInMillis = 1000 * 60 * 24 * 7;
+//        long tenSecondsInMillis = 1000 * 60 * 24 * 7;
+        long tenSecondsInMillis = 1000 * 2;
         alarmManager.set(AlarmManager.RTC_WAKEUP,
                 timeAtButtonClick+tenSecondsInMillis,
                 pendingIntent);

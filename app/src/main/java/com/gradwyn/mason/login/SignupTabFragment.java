@@ -106,29 +106,35 @@ public class SignupTabFragment extends Fragment {
                 uComPass = comfim.getText().toString();
                 uEmail = email.getText().toString();
 
-                if (uName=="" || uPassword=="" || uEmail=="" || uComPass=="") {
+                if (uName.isEmpty() || uName=="") {
                     // 请输入输入完整信息
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(getContext(), "Completing the incomplete information, please completed." ,Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(getContext(), "Please enter Name." ,Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
 
-                } else if (!VerifyUtil.passwordVerify(uPassword)) {
-                    // 密码长度低于8位
+                } else if (uPassword.isEmpty() || uPassword=="") {
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(getContext(), "The password must be at least 8 (eight) characters long." ,Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(getContext(), "Please enter Password." ,Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
 
-                } else if (!uPassword.equals(uComPass)) {
-                    // 两次输入密码不相同
+                } else if (uEmail.isEmpty() || uEmail=="") {
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(getContext(), "Two different input password, please re-entry." ,Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(getContext(), "Please enter Email." ,Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+
+                } else if (uComPass.isEmpty() || uComPass=="") {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(getContext(), "Please enter Confirm Password." ,Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
@@ -137,12 +143,30 @@ public class SignupTabFragment extends Fragment {
                     // 邮箱地址错误
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(getContext(), "Mail address format is not correct!" ,Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(getContext(), "Please enter an e-mail address in the format username@domain.com." ,Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
 
-                } else {
+                } else if (!VerifyUtil.passwordVerify(uPassword)) {
+                    // 密码长度低于8位
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(getContext(), "Use 8 characters or more for your password." ,Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+
+                } else if (!uPassword.equals(uComPass)) {
+                    // 两次输入密码不相同
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(getContext(), "Those passwords didn’t match. Try again." ,Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+
+                }  else {
                     if (flag) {
                         AuthSignUpOptions options = AuthSignUpOptions.builder()
                                 .userAttribute(AuthUserAttributeKey.email(), uEmail)
@@ -166,7 +190,7 @@ public class SignupTabFragment extends Fragment {
                 myCountDownTimer.start();
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        final Toast toast = Toast.makeText(getContext(), "Verification code has been sent to you by mail, please find." ,Toast.LENGTH_SHORT);
+                        final Toast toast = Toast.makeText(getContext(), "A verification code has been sent." ,Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 });
