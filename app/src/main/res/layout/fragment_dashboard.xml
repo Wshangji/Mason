@@ -106,13 +106,6 @@
             android:text="Change password"
             />
         <Button
-            android:id="@+id/user_forget"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/yellow"
-            android:text="Forget password"
-            />
-        <Button
             android:id="@+id/user_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

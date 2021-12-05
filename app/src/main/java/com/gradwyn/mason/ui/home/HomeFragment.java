@@ -69,27 +69,26 @@ import com.gradwyn.mason.util.NotificationUtil;
             }
         });
 
-//        Amplify.DataStore.query(
-//                Questions.class,
-//                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
-//                matches -> {
-//                    if (matches.hasNext()) {
-//                        Questions questions = matches.next();
-//                        Toast.makeText(getActivity(),"date:"+questions.getCreatedAt(),Toast.LENGTH_SHORT).show();
-//                        System.out.println(questions.getCreatedAt());
-//                    }
-//                },
-////                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-//                failure -> Toast.makeText(getActivity(),"failed:"+failure,Toast.LENGTH_SHORT).show()
-//
-//        );
+        Amplify.DataStore.query(
+                Questions.class,
+                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
+                matches -> {
+                    if (matches.hasNext()) {
+                        Questions questions = matches.next();
+                        Log.i("Amplify Query Data", "questions: " + questions.getUpdatedAt());
+                    }
+                },
+                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
 
-        //判断是否同意许可协议
+        );
+
+//        判断是否同意许可协议
         Amplify.DataStore.query(User.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
                 matches -> {
                     if (matches.hasNext()) {
-                        Toast.makeText(getActivity(),"lists",Toast.LENGTH_SHORT).show();
-                        if (!matches.next().getIsAgree()){
+                        User user = matches.next();
+                        Log.i("Amplify Query User", "User: " + user);
+                        if (!user.getIsAgree()){
                             Intent intent = new Intent();
                             intent.setClass(getActivity(), Activity_perquestion.class);
                             startActivity(intent);
@@ -100,8 +99,7 @@ import com.gradwyn.mason.util.NotificationUtil;
                         startActivity(intent);
                     }
                 },
-//                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-                failure -> Toast.makeText(getActivity(),"error:"+failure,Toast.LENGTH_SHORT).show()
+                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
                 );
 
         // 判断是否获取通知

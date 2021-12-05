@@ -21,33 +21,33 @@ public class FinishActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
         getSupportActionBar().hide();       //隐藏标题栏
-        createNotificationChannel();
-
-        Intent intent = new Intent(FinishActivity.this, ReminderBoard.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(FinishActivity.this,0,intent,0);
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        long timeAtButtonClick = System.currentTimeMillis();
-//        long tenSecondsInMillis = 1000 * 60 * 24 * 7;
-        long tenSecondsInMillis = 1000 * 2;
-        alarmManager.set(AlarmManager.RTC_WAKEUP,
-                timeAtButtonClick+tenSecondsInMillis,
-                pendingIntent);
+//        createNotificationChannel();
+//
+//        Intent intent = new Intent(FinishActivity.this, ReminderBoard.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(FinishActivity.this,0,intent,0);
+//
+//        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//        long timeAtButtonClick = System.currentTimeMillis();
+////        long tenSecondsInMillis = 1000 * 60 * 24 * 7;
+//        long tenSecondsInMillis = 1000 * 2;
+//        alarmManager.set(AlarmManager.RTC_WAKEUP,
+//                timeAtButtonClick+tenSecondsInMillis,
+//                pendingIntent);
     }
 
-    private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.channel_name);
-            String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("notifyLemubit", name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
+//    private void createNotificationChannel() {
+//        // Create the NotificationChannel, but only on API 26+ because
+//        // the NotificationChannel class is new and not in the support library
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = getString(R.string.channel_name);
+//            String description = getString(R.string.channel_description);
+//            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+//            NotificationChannel channel = new NotificationChannel("notifyLemubit", name, importance);
+//            channel.setDescription(description);
+//            // Register the channel with the system; you can't change the importance
+//            // or other notification behaviors after this
+//            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+//            notificationManager.createNotificationChannel(channel);
+//        }
+//    }
 }

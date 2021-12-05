@@ -45,24 +45,30 @@ public class Ques6_1Activity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-//                        Amplify.DataStore.query(
-//                                Perception.class,
-//                                Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
-//                                matches -> {
-//                                    if (matches.hasNext()) {
-//                                        if (matches.next().getEigenstates()!=null && !matches.next().getEigenstates().equals("Not currently employed")){
+                        Amplify.DataStore.query(
+                                Perception.class,
+                                Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
+                                matches -> {
+                                    if (matches.hasNext()) {
+                                        Perception perception = matches.next();
+                                        Log.i("Amplify Query", "persion: " + perception);
+                                        if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Not currently employed")){
                                             Intent intent = new Intent(Ques6_1Activity.this, Ques7Activity.class);
                                             startActivity(intent);
                                             finish();
-//                                        } else {
-//                                            Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
-//                                            startActivity(intent);
-//                                            finish();
-//                                        }
-//                                    }
-//                                },
-//                                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-//                        );
+                                        } else {
+                                            Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    } else {
+                                        Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                },
+                                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+                        );
                     }
                 } else {
                     Amplify.DataStore.query(
@@ -70,7 +76,9 @@ public class Ques6_1Activity extends AppCompatActivity {
                             Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
                             matches -> {
                                 if (matches.hasNext()) {
-                                    if (matches.next().getEigenstates()!=null && !matches.next().getEigenstates().equals("Not currently employed")){
+                                    Perception perception = matches.next();
+                                    Log.i("Amplify Query", "persion: " + perception);
+                                    if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Not currently employed")){
                                         Intent intent = new Intent(Ques6_1Activity.this, Ques7Activity.class);
                                         startActivity(intent);
                                         finish();
@@ -79,6 +87,10 @@ public class Ques6_1Activity extends AppCompatActivity {
                                         startActivity(intent);
                                         finish();
                                     }
+                                } else {
+                                    Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             },
                             failure -> Log.e("MyAmplifyApp", "Query failed.", failure)

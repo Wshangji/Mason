@@ -18,16 +18,14 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void test() {
-        Amplify.DataStore.query(
-                Perception.class,
-                Where.matches(Perception.NAME.eq("ceshi")),
-                items -> {
-                    while (items.hasNext()) {
-                        Perception table = items.next();
-                        System.out.println(table.toString());
+        Amplify.DataStore.query(Perception.class,
+                allPosts -> {
+                    while (allPosts.hasNext()) {
+                        Perception post = allPosts.next();
+                        Log.i("MyAmplifyApp", "Title: " + post);
                     }
                 },
-                failure -> Log.e("error", "Query failed.", failure)
+                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
         );
     }
 }

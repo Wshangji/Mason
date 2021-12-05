@@ -109,6 +109,7 @@ public class LoginTabFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), MainActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
