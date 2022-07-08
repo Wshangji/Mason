@@ -1,5 +1,6 @@
 package com.gradwyn.mason.ui.dashboard;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.amplifyframework.auth.AuthException;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 
@@ -27,6 +29,7 @@ public class DashboardFragment extends Fragment {
     private DashboardViewModel dashboardViewModel;
     private Button logout;
     private Button userContext;
+    private ProgressDialog loadingDialog;
 //    private FloatingActionButton exit;
     private TextView userName;
 
@@ -50,20 +53,35 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+        // 退出登录事件
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 创建登陆加载动画
+                loadingDialog = new ProgressDialog(getContext());
+                // 点击空白不消失
+                loadingDialog.setCancelable(false);
+                loadingDialog.show();
+                loadingDialog.setContentView(R.layout.loading_view);
                 Amplify.Auth.signOut(
                         AuthSignOutOptions.builder().globalSignOut(true).build(),
-                        () -> Log.i("AuthQuickstart", "Signed out globally"),
-                        error -> Log.e("AuthQuickstart", error.toString())
+                        this::onSignOutSuccess,
+                        this::onSiginOutError
                 );
-//                Amplify.DataStore.clear(
-//                        () -> Log.i("MyAmplifyApp", "DataStore is cleared."),
-//                        failure -> Log.e("MyAmplifyApp", "Failed to clear DataStore.")
-//                );
+            }
+
+            // 退出登录失败
+            private void onSiginOutError(AuthException e) {
+                loadingDialog.dismiss();
+                Log.e("AuthQuickstart", e.toString());
+            }
+
+            // 退出登录成功
+            private void onSignOutSuccess() {
+                loadingDialog.dismiss();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
+                Log.i("AuthQuickstart", "Signed out globally");
             }
         });
 

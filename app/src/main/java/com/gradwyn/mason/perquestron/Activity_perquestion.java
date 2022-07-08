@@ -3,6 +3,7 @@ package com.gradwyn.mason.perquestron;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ public class Activity_perquestion extends AppCompatActivity {
     private String ethnicity = null;
     private String ses = null;
     private String eigenstates = null;
+
+    private ProgressDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +125,12 @@ public class Activity_perquestion extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 创建登陆加载动画
+                loadingDialog = new ProgressDialog(Activity_perquestion.this);
+                // 点击空白不消失
+                loadingDialog.setCancelable(false);
+                loadingDialog.show();
+                loadingDialog.setContentView(R.layout.loading_view);
                 username = Amplify.Auth.getCurrentUser().getUsername();
                 userId = Amplify.Auth.getCurrentUser().getUserId();
                 Amplify.DataStore.save(
@@ -147,6 +156,7 @@ public class Activity_perquestion extends AppCompatActivity {
                         error -> Log.e("MyAmplifyApp",  "Error creating post", error)
                 );
 
+                loadingDialog.dismiss();
                 Intent intent = new Intent();
                 intent.setClass(Activity_perquestion.this, MainActivity.class);
                 startActivity(intent);

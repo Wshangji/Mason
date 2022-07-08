@@ -1,5 +1,6 @@
 package com.gradwyn.mason.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -37,6 +38,7 @@ public class SignupTabFragment extends Fragment {
     Button signup,send;
     float v = 0;
     private Boolean flag = true;
+    private ProgressDialog loadingDialog;
     String uName, uPassword, uComPass, uEmail;
 
     @Nullable
@@ -168,6 +170,12 @@ public class SignupTabFragment extends Fragment {
 
                 }  else {
                     if (flag) {
+                        // 创建登陆加载动画
+                        loadingDialog = new ProgressDialog(getContext());
+                        // 点击空白不消失
+                        loadingDialog.setCancelable(false);
+                        loadingDialog.show();
+                        loadingDialog.setContentView(R.layout.loading_view);
                         AuthSignUpOptions options = AuthSignUpOptions.builder()
                                 .userAttribute(AuthUserAttributeKey.email(), uEmail)
                                 .build();
@@ -187,6 +195,7 @@ public class SignupTabFragment extends Fragment {
 
             //验证码发送成功
             private void signUpSuccess(AuthSignUpResult authSignUpResult) {
+                loadingDialog.dismiss();
                 myCountDownTimer.start();
                 runOnUiThread(new Runnable() {
                     public void run() {
@@ -198,6 +207,7 @@ public class SignupTabFragment extends Fragment {
 
             //验证码发送失败
             private void signUpError(AuthException e) {
+                loadingDialog.dismiss();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         final Toast toast = Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_SHORT);
@@ -211,6 +221,12 @@ public class SignupTabFragment extends Fragment {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 创建登陆加载动画
+                loadingDialog = new ProgressDialog(getContext());
+                // 点击空白不消失
+                loadingDialog.setCancelable(false);
+                loadingDialog.show();
+                loadingDialog.setContentView(R.layout.loading_view);
                 Amplify.Auth.confirmSignUp(
                         uName,
                         code.getText().toString(),
@@ -221,6 +237,7 @@ public class SignupTabFragment extends Fragment {
 
             //注册失败事件
             private void OnjoinError(AuthException e) {
+                loadingDialog.dismiss();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         final Toast toast = Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_LONG);
@@ -231,7 +248,6 @@ public class SignupTabFragment extends Fragment {
 
             //注册成功事件
             private void onJoinSuccess(AuthSignUpResult authSignUpResult) {
-
                 Amplify.Auth.signIn(
                         uName,
                         uPassword,
@@ -239,6 +255,7 @@ public class SignupTabFragment extends Fragment {
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
 
+                loadingDialog.dismiss();
                 //页面跳转
                 jumpPersen();
                 runOnUiThread(new Runnable() {

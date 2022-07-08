@@ -1,5 +1,6 @@
 package com.gradwyn.mason.queslist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
@@ -61,46 +62,56 @@ public class Ques9Activity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Amplify.DataStore.save(
-                        Questions.builder()
-                                .name(Amplify.Auth.getCurrentUser().getUsername())
-                                .pro1(Contexts.pro1)
-                                .pro2(Contexts.pro2)
-                                .pro3(Contexts.pro3)
-                                .pro4(Contexts.pro4)
-                                .pro5(Contexts.pro5)
-                                .pro6_1(Contexts.pro6_1)
-                                .pro6_2(Contexts.pro6_2)
-                                .pro7_1(Contexts.pro7_1)
-                                .pro7_2(Contexts.pro7_2)
-                                .pro7_3(Contexts.pro7_3)
-                                .pro7_4(Contexts.pro7_4)
-                                .pro8_1(Contexts.pro8_1)
-                                .pro8_2(Contexts.pro8_2)
-                                .pro8_3(Contexts.pro8_3)
-                                .pro8_4(Contexts.pro8_4)
-                                .pro8_5(Contexts.pro8_5)
-                                .pro9_1(Contexts.pro9_1)
-                                .pro9_2(Contexts.pro9_2)
-                                .pro9_3(Contexts.pro9_3)
-                                .pro9_4(Contexts.pro9_4)
-                                .pro9_5(Contexts.pro9_5)
-                                .build(),
-                        this :: submitSuccess,
-                        this :: submitError
-                );
+                if (Contexts.pro9_1 != null && Contexts.pro9_2 != null && Contexts.pro9_3 != null && Contexts.pro9_4 != null && Contexts.pro9_5 != null) {
+                    Amplify.DataStore.save(
+                            Questions.builder()
+                                    .name(Amplify.Auth.getCurrentUser().getUsername())
+                                    .pro1(Contexts.pro1)
+                                    .pro2(Contexts.pro2)
+                                    .pro3(Contexts.pro3)
+                                    .pro4(Contexts.pro4)
+                                    .pro5(Contexts.pro5)
+                                    .pro6_1(Contexts.pro6_1)
+                                    .pro6_2(Contexts.pro6_2)
+                                    .pro7_1(Contexts.pro7_1)
+                                    .pro7_2(Contexts.pro7_2)
+                                    .pro7_3(Contexts.pro7_3)
+                                    .pro7_4(Contexts.pro7_4)
+                                    .pro8_1(Contexts.pro8_1)
+                                    .pro8_2(Contexts.pro8_2)
+                                    .pro8_3(Contexts.pro8_3)
+                                    .pro8_4(Contexts.pro8_4)
+                                    .pro8_5(Contexts.pro8_5)
+                                    .pro9_1(Contexts.pro9_1)
+                                    .pro9_2(Contexts.pro9_2)
+                                    .pro9_3(Contexts.pro9_3)
+                                    .pro9_4(Contexts.pro9_4)
+                                    .pro9_5(Contexts.pro9_5)
+                                    .build(),
+                            this :: submitSuccess,
+                            this :: submitError
+                    );
 
-                // 添加定时通知
-                Intent intent = new Intent(Ques9Activity.this, ReminderBoard.class);
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(Ques9Activity.this,0,intent,0);
+                    // 添加定时通知
+                    Intent intent = new Intent(Ques9Activity.this, ReminderBoard.class);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(Ques9Activity.this,0,intent,0);
 
-                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                long timeAtButtonClick = System.currentTimeMillis();
-//        long tenSecondsInMillis = 1000 * 60 * 24 * 7;
-                long tenSecondsInMillis = 1000 * 2;
-                alarmManager.set(AlarmManager.RTC_WAKEUP,
-                        timeAtButtonClick+tenSecondsInMillis,
-                        pendingIntent);
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    long timeAtButtonClick = System.currentTimeMillis();
+                    long tenSecondsInMillis = 1000 * 60 * 24 * 7;
+//                    long tenSecondsInMillis = 1000 * 2;
+                    alarmManager.set(AlarmManager.RTC_WAKEUP,
+                            timeAtButtonClick+tenSecondsInMillis,
+                            pendingIntent);
+                } else {
+                    //弹出框
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques9Activity.this);
+                    builder1.setIcon(R.drawable.warn);
+                    builder1.setTitle("Warnings");
+                    builder1.setMessage("Please complete questions");
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
             }
 
             private void submitError(DataStoreException e) {

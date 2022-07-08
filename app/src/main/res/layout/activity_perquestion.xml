@@ -27,7 +27,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gender Options"
+                    android:text="What is your current gender identity, even if it is different than what is on your birth certificate?"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Race Options"
+                    android:text="What is your race?"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -129,7 +129,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ethnicity Options"
+                    android:text="What do you consider your ethnicity to be?"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -171,7 +171,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="SES Options"
+                    android:text="How much money does your family have?"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
@@ -219,7 +219,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Employment Status Options"
+                    android:text="What is your employment status?"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 

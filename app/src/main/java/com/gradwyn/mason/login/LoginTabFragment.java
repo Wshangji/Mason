@@ -1,5 +1,6 @@
  package com.gradwyn.mason.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,8 @@ import com.gradwyn.mason.R;
 import static com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread;
 
 public class LoginTabFragment extends Fragment {
+
+    private ProgressDialog loadingDialog;
 
     EditText username,pass;
     TextView forgetPass;
@@ -71,6 +74,12 @@ public class LoginTabFragment extends Fragment {
                     Toast toast = Toast.makeText(getContext(), "Please enter password" ,Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
+                    // 创建登陆加载动画
+                    loadingDialog = new ProgressDialog(getContext());
+                    // 点击空白不消失
+                    loadingDialog.setCancelable(false);
+                    loadingDialog.show();
+                    loadingDialog.setContentView(R.layout.loading_view);
                     //AWS登录验证
                     Amplify.Auth.signIn(
                             uname,
@@ -85,6 +94,8 @@ public class LoginTabFragment extends Fragment {
             //登录成功事件
             private void onLoginSuccess(AuthSignInResult authSignInResult) {
 
+                // 登陆加载动画消失
+                loadingDialog.dismiss();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         final Toast toast = Toast.makeText(getContext(), "Login Success" ,Toast.LENGTH_LONG);
@@ -96,6 +107,9 @@ public class LoginTabFragment extends Fragment {
 
             //登录失败事件
             private void onLoginError(AuthException e) {
+
+                // 登陆加载动画消失
+                loadingDialog.dismiss();
                 runOnUiThread(new Runnable() {
                     public void run() {
                         final Toast toast = Toast.makeText(getContext(), e.getMessage() ,Toast.LENGTH_LONG);

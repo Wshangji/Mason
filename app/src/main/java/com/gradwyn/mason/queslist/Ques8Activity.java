@@ -1,5 +1,6 @@
 package com.gradwyn.mason.queslist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -46,9 +47,20 @@ public class Ques8Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Ques8Activity.this, Ques9Activity.class);
-                startActivity(intent);
-                finish();
+
+                if (Contexts.pro8_1 != null && Contexts.pro8_2 != null && Contexts.pro8_3 != null && Contexts.pro8_4 != null && Contexts.pro8_5 != null) {
+                    Intent intent = new Intent(Ques8Activity.this, Ques9Activity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    //弹出框
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques8Activity.this);
+                    builder1.setIcon(R.drawable.warn);
+                    builder1.setTitle("Warnings");
+                    builder1.setMessage("Please complete questions");
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
             }
         });
 

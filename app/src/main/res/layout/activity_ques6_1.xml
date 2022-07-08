@@ -52,7 +52,7 @@
                 android:id="@+id/ques6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yes"
+                android:text="In persion"
                 android:textSize="16dp" />
             <RadioButton
                 android:id="@+id/ques6_2"

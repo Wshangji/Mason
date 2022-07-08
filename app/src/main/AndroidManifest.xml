@@ -19,22 +19,19 @@
         <activity android:name="com.gradwyn.mason.queslist.Ques4Activity" />
         <activity android:name="com.gradwyn.mason.queslist.Ques3Activity" />
         <activity android:name="com.gradwyn.mason.queslist.Ques2Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques1Activity" />
         <activity android:name="com.gradwyn.mason.login.ConfirmedActivity" />
         <activity android:name="com.gradwyn.mason.FinishActivity" />
         <activity android:name="com.gradwyn.mason.perquestron.Activity_perquestion" />
         <activity
             android:name="com.gradwyn.mason.MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name="com.gradwyn.mason.LoginActivity" />
-        <activity android:name="com.gradwyn.mason.activity_introductory">
+        <activity android:name="com.gradwyn.mason.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <receiver
             android:name="com.gradwyn.mason.util.ReminderBoard"
             android:process=":remote" />

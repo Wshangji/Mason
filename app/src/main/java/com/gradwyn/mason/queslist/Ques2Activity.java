@@ -1,5 +1,6 @@
 package com.gradwyn.mason.queslist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -130,9 +131,19 @@ public class Ques2Activity extends AppCompatActivity {
                      ) {
                     Contexts.pro2+=t;
                 }
-                Intent intent = new Intent(Ques2Activity.this, Ques3Activity.class);
-                startActivity(intent);
-                finish();
+                if (Contexts.pro2 != null) {
+                    Intent intent = new Intent(Ques2Activity.this, Ques3Activity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    //弹出框
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques2Activity.this);
+                    builder1.setIcon(R.drawable.warn);
+                    builder1.setTitle("Warnings");
+                    builder1.setMessage("Please complete questions");
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
             }
         });
     }

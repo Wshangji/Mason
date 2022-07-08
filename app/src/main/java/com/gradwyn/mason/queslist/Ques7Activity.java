@@ -1,5 +1,6 @@
 package com.gradwyn.mason.queslist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -25,7 +26,7 @@ public class Ques7Activity extends AppCompatActivity {
     private Spinner spinner4;
     private ArrayAdapter<String> adapter = null;
     private static final String [] listall ={
-            "one times",
+            "one time",
             "two times",
             "three times",
             "four times",
@@ -111,9 +112,19 @@ public class Ques7Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Ques7Activity.this, Ques8Activity.class);
-                startActivity(intent);
-                finish();
+                if (Contexts.pro7_1 != null && Contexts.pro7_2 != null && Contexts.pro7_3 != null && Contexts.pro7_4 != null) {
+                    Intent intent = new Intent(Ques7Activity.this, Ques8Activity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    //弹出框
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques7Activity.this);
+                    builder1.setIcon(R.drawable.warn);
+                    builder1.setTitle("Warnings");
+                    builder1.setMessage("Please complete questions");
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
             }
         });
     }

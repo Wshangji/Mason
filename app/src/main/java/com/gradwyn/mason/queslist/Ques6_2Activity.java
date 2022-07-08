@@ -1,5 +1,6 @@
 package com.gradwyn.mason.queslist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,30 +43,41 @@ public class Ques6_2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Amplify.DataStore.query(
-                        Perception.class,
-                        Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
-                        matches -> {
-                            if (matches.hasNext()) {
-                                Perception perception = matches.next();
-                                Log.i("Amplify Query", "persion: " + perception);
-                                if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Not currently employed")){
-                                    Intent intent = new Intent(Ques6_2Activity.this, Ques7Activity.class);
-                                    startActivity(intent);
-                                    finish();
+                if (Contexts.pro6_2 != null) {
+                    Amplify.DataStore.query(
+                            Perception.class,
+                            Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
+                            matches -> {
+                                if (matches.hasNext()) {
+                                    Perception perception = matches.next();
+                                    Log.i("Amplify Query", "persion: " + perception);
+                                    if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Not currently employed")){
+                                        Intent intent = new Intent(Ques6_2Activity.this, Ques7Activity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Intent intent = new Intent(Ques6_2Activity.this, Ques8Activity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
                                 } else {
                                     Intent intent = new Intent(Ques6_2Activity.this, Ques8Activity.class);
                                     startActivity(intent);
                                     finish();
                                 }
-                            } else {
-                                Intent intent = new Intent(Ques6_2Activity.this, Ques8Activity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        },
-                        failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-                );
+                            },
+                            failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+                    );
+                } else {
+                    //弹出框
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques6_2Activity.this);
+                    builder1.setIcon(R.drawable.warn);
+                    builder1.setTitle("Warnings");
+                    builder1.setMessage("Please complete questions");
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
+
             }
         });
     }

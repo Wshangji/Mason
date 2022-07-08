@@ -1,10 +1,7 @@
  package com.gradwyn.mason.ui.home;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,27 +9,27 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.query.Page;
 import com.amplifyframework.core.model.query.Where;
-import com.amplifyframework.datastore.generated.model.Perception;
 import com.amplifyframework.datastore.generated.model.Questions;
 import com.amplifyframework.datastore.generated.model.User;
+import com.gradwyn.mason.FinishActivity;
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.perquestron.Activity_perquestion;
 import com.gradwyn.mason.queslist.Ques2Activity;
-import com.gradwyn.mason.queslist.Ques6_1Activity;
-import com.gradwyn.mason.queslist.Ques7Activity;
-import com.gradwyn.mason.queslist.Ques8Activity;
 import com.gradwyn.mason.util.Contexts;
 import com.gradwyn.mason.util.NotificationUtil;
+
+import static com.gradwyn.mason.util.DateUtil.differentDaysByMillisecond;
 
  public class HomeFragment extends Fragment {
 
@@ -69,17 +66,28 @@ import com.gradwyn.mason.util.NotificationUtil;
             }
         });
 
+        // 是否开启问卷
         Amplify.DataStore.query(
                 Questions.class,
-                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
+                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername()))
+                        .sorted(Questions.UPDATED_AT.descending())
+                        .paginated(Page.startingAt(0).withLimit(1)),
                 matches -> {
                     if (matches.hasNext()) {
                         Questions questions = matches.next();
-                        Log.i("Amplify Query Data", "questions: " + questions.getUpdatedAt());
+                        if (questions!=null) {
+                            int n = differentDaysByMillisecond(questions.getUpdatedAt().toDate());
+                            Log.i("计算间隔", "IsQuestionnaireOpen: "+n);
+                            if (n<14) {
+                                Intent intent = new Intent();
+                                intent.setClass(getActivity(), FinishActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                        Log.i("Amplify Query Data", "questions: " + questions);
                     }
                 },
                 failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-
         );
 
 //        判断是否同意许可协议
@@ -113,13 +121,24 @@ import com.gradwyn.mason.util.NotificationUtil;
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity(), Ques2Activity.class);
-                        startActivity(intent);
-                        getActivity().finish();
+                        if (Contexts.pro1 != null) {
+                            Intent intent = new Intent(getActivity(), Ques2Activity.class);
+                            startActivity(intent);
+                            getActivity().finish();
+                        } else {
+                            //弹出框
+                            AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+                            builder1.setIcon(R.drawable.warn);
+                            builder1.setTitle("Warnings");
+                            builder1.setMessage("Please complete questions");
+                            AlertDialog alert11 = builder1.create();
+                            alert11.show();
+                        }
                     }
                 });
             }
         });
         return root;
     }
-}
+
+ }

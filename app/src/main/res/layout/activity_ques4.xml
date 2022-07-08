@@ -58,7 +58,7 @@
                 android:id="@+id/ques4_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="in person"
+                android:text="In person"
                 android:textSize="16dp" />
         </RadioGroup>
 
