@@ -6,6 +6,10 @@ mutation CreateUser(
   createUser(input: $input, condition: $condition) {
     id
     name
+    isAgree
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -18,6 +22,10 @@ mutation UpdateUser(
   updateUser(input: $input, condition: $condition) {
     id
     name
+    isAgree
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -30,6 +38,10 @@ mutation DeleteUser(
   deleteUser(input: $input, condition: $condition) {
     id
     name
+    isAgree
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
     owner
@@ -41,19 +53,16 @@ mutation CreatePerception(
 ) {
   createPerception(input: $input, condition: $condition) {
     id
+    name
     gender
     race
     ethnicity
     ses
     eigenstates
-    user {
-      id
-      name
-      createdAt
-      updatedAt
-      owner
-    }
     createdAt
+    _version
+    _deleted
+    _lastChangedAt
     updatedAt
     owner
   }
@@ -64,19 +73,16 @@ mutation UpdatePerception(
 ) {
   updatePerception(input: $input, condition: $condition) {
     id
+    name
     gender
     race
     ethnicity
     ses
     eigenstates
-    user {
-      id
-      name
-      createdAt
-      updatedAt
-      owner
-    }
     createdAt
+    _version
+    _deleted
+    _lastChangedAt
     updatedAt
     owner
   }
@@ -87,19 +93,16 @@ mutation DeletePerception(
 ) {
   deletePerception(input: $input, condition: $condition) {
     id
+    name
     gender
     race
     ethnicity
     ses
     eigenstates
-    user {
-      id
-      name
-      createdAt
-      updatedAt
-      owner
-    }
     createdAt
+    _version
+    _deleted
+    _lastChangedAt
     updatedAt
     owner
   }
@@ -116,9 +119,26 @@ mutation CreateQuestions(
     pro3
     pro4
     pro5
-    pro6
-    pro7
+    pro6_1
+    pro6_2
+    pro7_1
+    pro7_2
+    pro7_3
+    pro7_4
+    pro8_1
+    pro8_2
+    pro8_3
+    pro8_4
+    pro8_5
+    pro9_1
+    pro9_2
+    pro9_3
+    pro9_4
+    pro9_5
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     owner
   }
@@ -135,9 +155,26 @@ mutation UpdateQuestions(
     pro3
     pro4
     pro5
-    pro6
-    pro7
+    pro6_1
+    pro6_2
+    pro7_1
+    pro7_2
+    pro7_3
+    pro7_4
+    pro8_1
+    pro8_2
+    pro8_3
+    pro8_4
+    pro8_5
+    pro9_1
+    pro9_2
+    pro9_3
+    pro9_4
+    pro9_5
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     owner
   }
@@ -154,9 +191,26 @@ mutation DeleteQuestions(
     pro3
     pro4
     pro5
-    pro6
-    pro7
+    pro6_1
+    pro6_2
+    pro7_1
+    pro7_2
+    pro7_3
+    pro7_4
+    pro8_1
+    pro8_2
+    pro8_3
+    pro8_4
+    pro8_5
+    pro9_1
+    pro9_2
+    pro9_3
+    pro9_4
+    pro9_5
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     owner
   }
