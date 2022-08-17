@@ -75,4 +75,20 @@ participate in this study. By selecting “yes,” I indicate my eligibility and
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <!--  questions  -->
+    <string name="question_1">On a scale of 1–10, how hopeful are you about achieving your academic goals this semester (1=not at all hopeful, 10=extremely hopeful)?</string>
+    <string name="question_2">There are many coping strategies that students have used to support their mental wellness during COVID-19. Please indicate which of the following you have benefitted from this week. (select all that apply)</string>
+    <string name="question_3">Have you observed a lack of motivation for study this week?</string>
+    <string name="question_4">Have you faced challenges in the taking of online classes?</string>
+    <string name="question_5">Are you vaccinated against COVID-19?</string>
+    <string name="question_6_1">During this week, with whom did you have the most interaction?</string>
+    <string name="question_6_2">Virtual or in-person?</string>
+    <string name="question_7">What has been most stressful, if anything, for you during this week? </string>
+    <string name="question_8">Have you experienced any financial stress this past week?</string>
+    <string name="question_9">Have you spoken with a a mental health professional in the pastis week?</string>
+    <string name="question_10">How many times has the following happened within the last week</string>
+    <string name="question_11">Satisfaction with Life Scale(Rate your agreement with each statement using the scale 1–7, 1 closest agreement, 7 strongest disagreement).</string>
+    <string name="question_12">Academic Self-Efficacy Scale(1= Not Very Well to 5= Very Well)</string>
 </resources>

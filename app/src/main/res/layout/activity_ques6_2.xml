@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintVertical_bias="0.36"
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
 
@@ -36,7 +36,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:text="Have you spoken with mental health professional this week?"
-            android:textSize="20dp"
+            android:textSize="16sp"
             android:textColor="@color/black"
             />
 
@@ -46,20 +46,20 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
             <RadioButton
                 android:id="@+id/ques5_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes"
-                android:textSize="16dp" />
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques5_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
-                android:textSize="16dp" />
+                android:textSize="14sp" />
         </RadioGroup>
 
         <Button

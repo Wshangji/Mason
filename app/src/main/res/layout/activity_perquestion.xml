@@ -9,13 +9,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="15dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="1dp"
         android:paddingBottom="25dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -29,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:text="What is your current gender identity, even if it is different than what is on your birth certificate?"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <RadioGroup
                     android:id="@+id/gender_group"
@@ -42,26 +43,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Male"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/gender_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                     <RadioButton
                         android:id="@+id/gender_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="I do not identify as either male or female"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                     <RadioButton
                         android:id="@+id/gender_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="I’m not sure yet"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -131,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:text="What do you consider your ethnicity to be?"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <RadioGroup
                     android:id="@+id/eth_group"
@@ -144,20 +145,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hispanic or Latino"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/eth_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NOT Hispanic or Latino"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                     <RadioButton
                         android:id="@+id/eth_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Unknown/Not Reported"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -171,9 +172,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="How much money does your family have?"
+                    android:text="How many credits this semester?"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <RadioGroup
                     android:id="@+id/ses_group"
@@ -185,27 +186,15 @@
                         android:id="@+id/ses_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Not enough money to get by"
-                        android:textSize="16dp" />
+                        android:text="Part-time"
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/ses_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Just enough money to get by"
-                        android:textSize="16dp" />
-                    <RadioButton
-                        android:id="@+id/ses_3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="We only have to worry about money for fun and extras"
-                        android:textSize="16dp" />
-                    <RadioButton
-                        android:id="@+id/ses_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="We never have to worry about money"
-                        android:textSize="16dp" />
+                        android:text="Full-time"
+                        android:textSize="16sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -221,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:text="What is your employment status?"
                     android:textColor="@color/black"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <RadioGroup
                     android:id="@+id/emp_group"
@@ -234,24 +223,59 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Part-time"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <RadioButton
                         android:id="@+id/emp_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Full-time"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                     <RadioButton
                         android:id="@+id/emp_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Not currently employed"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </RadioGroup>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Are you currently or planning to receive mental health treatment this semester?"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/mht_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/mht_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/mht_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textSize="16sp" />
+                </RadioGroup>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"

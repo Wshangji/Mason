@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.util.Contexts;
 
-public class Ques8Activity extends AppCompatActivity {
+public class Ques11Activity extends AppCompatActivity {
     private Button next;
     private SeekBar seekBar1;
     private SeekBar seekBar2;
@@ -30,31 +30,33 @@ public class Ques8Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ques8);
-        getSupportActionBar().hide();       //隐藏标题栏
-        next = findViewById(R.id.ques_next8);
-        seekBar1 = findViewById(R.id.ques8_1);
-        seekBar2 = findViewById(R.id.ques8_2);
-        seekBar3 = findViewById(R.id.ques8_3);
-        seekBar4 = findViewById(R.id.ques8_4);
-        seekBar5 = findViewById(R.id.ques8_5);
-        view1 = findViewById(R.id.v_1);
-        view2 = findViewById(R.id.v_2);
-        view3 = findViewById(R.id.v_3);
-        view4 = findViewById(R.id.v_4);
-        view5 = findViewById(R.id.v_5);
+        setContentView(R.layout.activity_ques11);
+        getSupportActionBar().hide();
 
+        // 控件绑定
+        next = findViewById(R.id.ques_next11);
+        seekBar1 = findViewById(R.id.ques11_1);
+        seekBar2 = findViewById(R.id.ques11_2);
+        seekBar3 = findViewById(R.id.ques11_3);
+        seekBar4 = findViewById(R.id.ques11_4);
+        seekBar5 = findViewById(R.id.ques11_5);
+        view1 = findViewById(R.id.v11_1);
+        view2 = findViewById(R.id.v11_2);
+        view3 = findViewById(R.id.v11_3);
+        view4 = findViewById(R.id.v11_4);
+        view5 = findViewById(R.id.v11_5);
+
+        // 按键事件绑定
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (Contexts.pro8_1 != null && Contexts.pro8_2 != null && Contexts.pro8_3 != null && Contexts.pro8_4 != null && Contexts.pro8_5 != null) {
-                    Intent intent = new Intent(Ques8Activity.this, Ques9Activity.class);
+                if(Contexts.pro11_1 != null && Contexts.pro11_2 != null && Contexts.pro11_3 != null && Contexts.pro11_4 != null && Contexts.pro11_5 != null) {
+                    Intent intent = new Intent(Ques11Activity.this, Ques12Activity.class);
                     startActivity(intent);
                     finish();
                 } else {
                     //弹出框
-                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques8Activity.this);
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques11Activity.this);
                     builder1.setIcon(R.drawable.warn);
                     builder1.setTitle("Warnings");
                     builder1.setMessage("Please complete questions");
@@ -64,11 +66,12 @@ public class Ques8Activity extends AppCompatActivity {
             }
         });
 
+        // 滑动条事件
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Contexts.pro8_1 = String.valueOf(progress);
-                view1.setText(Contexts.pro8_1);
+                Contexts.pro11_1 = String.valueOf(progress);
+                view1.setText(Contexts.pro11_1);
             }
 
             @Override
@@ -84,8 +87,8 @@ public class Ques8Activity extends AppCompatActivity {
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Contexts.pro8_2 = String.valueOf(progress);
-                view2.setText(Contexts.pro8_2);
+                Contexts.pro11_2 = String.valueOf(progress);
+                view2.setText(Contexts.pro11_2);
             }
 
             @Override
@@ -101,8 +104,8 @@ public class Ques8Activity extends AppCompatActivity {
         seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Contexts.pro8_3 = String.valueOf(progress);
-                view3.setText(Contexts.pro8_3);
+                Contexts.pro11_3 = String.valueOf(progress);
+                view3.setText(Contexts.pro11_3);
             }
 
             @Override
@@ -118,8 +121,8 @@ public class Ques8Activity extends AppCompatActivity {
         seekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Contexts.pro8_4 = String.valueOf(progress);
-                view4.setText(Contexts.pro8_4);
+                Contexts.pro11_4 = String.valueOf(progress);
+                view4.setText(Contexts.pro11_4);
             }
 
             @Override
@@ -135,8 +138,8 @@ public class Ques8Activity extends AppCompatActivity {
         seekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Contexts.pro8_5 = String.valueOf(progress);
-                view5.setText(Contexts.pro8_5);
+                Contexts.pro11_5 = String.valueOf(progress);
+                view5.setText(Contexts.pro11_5);
             }
 
             @Override

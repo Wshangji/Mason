@@ -7,7 +7,7 @@
     tools:context=".queslist.Ques5Activity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.35"
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="What has been most stressful, if anything, for you during this week?"
-            android:textSize="20dp"
+            android:text="@string/question_5"
+            android:textSize="16sp"
             android:textColor="@color/black"
             />
 
@@ -52,44 +52,32 @@
                 android:id="@+id/ques5_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Classwork"
-                android:textSize="16dp" />
+                android:text="Definitely yes, and boosted"
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques5_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Job"
-                android:textSize="16dp" />
+                android:text="Yes, primary vaccination only"
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques5_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Finances"
-                android:textSize="16dp" />
+                android:text="I don’t know"
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques5_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Relationship"
-                android:textSize="16dp" />
+                android:text="No"
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques5_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Family"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques5_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Friends"
-                android:textSize="16dp" />
-            <RadioButton
-                android:id="@+id/ques5_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Other"
-                android:textSize="16dp" />
+                android:text="Definitely not"
+                android:textSize="14sp" />
         </RadioGroup>
 
         <Button

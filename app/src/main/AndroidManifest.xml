@@ -10,15 +10,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mason">
-        <activity android:name="com.gradwyn.mason.queslist.Ques9Activity"></activity>
-        <activity android:name="com.gradwyn.mason.queslist.Ques8Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques7Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques6_2Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques6_1Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques5Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques4Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques3Activity" />
-        <activity android:name="com.gradwyn.mason.queslist.Ques2Activity" />
+        <activity
+            android:name=".Ques12Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Ques11Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Ques10Activity"
+            android:exported="false" />
+        <activity android:name=".Ques9Activity" />
+        <activity android:name=".Ques8Activity" />
+        <activity android:name=".Ques7Activity" />
+        <activity android:name=".Ques6_2Activity" />
+        <activity android:name=".Ques6_1Activity" />
+        <activity android:name=".Ques5Activity" />
+        <activity android:name=".Ques4Activity" />
+        <activity android:name=".Ques3Activity" />
+        <activity android:name=".Ques2Activity" />
         <activity android:name="com.gradwyn.mason.login.ConfirmedActivity" />
         <activity android:name="com.gradwyn.mason.FinishActivity" />
         <activity android:name="com.gradwyn.mason.perquestron.Activity_perquestion" />
@@ -32,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver
             android:name="com.gradwyn.mason.util.ReminderBoard"
             android:process=":remote" />

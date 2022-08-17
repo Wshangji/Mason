@@ -7,7 +7,7 @@
     tools:context=".queslist.Ques7Activity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView7"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -18,126 +18,83 @@
         app:layout_constraintVertical_bias="0"
         tools:ignore="MissingConstraints" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.35"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/question_5"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="How many times has the following happened within the last week."
-                android:textSize="23dp"
-                android:textColor="@color/black"
-                />
-
-
-            <TextView
-                android:id="@+id/view1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="25dp"
-                android:text="My job took up time that l'd rather spend at school or on school work."
-                android:textSize="19dp"
-                android:textColor="@color/black"
-                />
-
-            <Spinner
-                android:id="@+id/spinner_1"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"/>
-
-            <TextView
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="25dp"
-                android:text="l've spent less time studying and doing homework because of my job."
-                android:textSize="19dp"
-                android:textColor="@color/black"
-                />
-
-            <Spinner
-                android:id="@+id/spinner_2"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"/>
-
-            <TextView
-                android:id="@+id/view4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="25dp"
-                android:text="Because of my job, I go to school tired."
-                android:textSize="19dp"
-                android:textColor="@color/black"
-                />
-
-            <Spinner
-                android:id="@+id/spinner_3"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="15dp"/>
-
-            <TextView
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="25dp"
-                android:text="My job demands and responsibilities interfered with my school work."
-                android:textSize="19dp"
-                android:textColor="@color/black"
-                />
-
-            <Spinner
-                android:id="@+id/spinner_4"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"/>
-
-            <Button
-                android:id="@+id/ques_next7"
+        <RadioGroup
+            android:id="@+id/ques7_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/ques7_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="25dp"
-                android:layout_gravity="center_horizontal"
-                android:text="Next"
-                android:backgroundTint="@color/yellow"
-                />
+                android:text="Classwork"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/ques7_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Job"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/ques7_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finances"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/ques7_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relationship"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/ques7_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Family"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/ques7_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friends"
+                android:textSize="16sp" />
+        </RadioGroup>
 
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/ques_next7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Next"
+            android:backgroundTint="@color/yellow"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

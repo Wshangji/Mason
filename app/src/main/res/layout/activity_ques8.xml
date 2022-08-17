@@ -7,7 +7,7 @@
     tools:context=".queslist.Ques8Activity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView8"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -18,202 +18,59 @@
         app:layout_constraintVertical_bias="0"
         tools:ignore="MissingConstraints" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.36"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:orientation="vertical"
-            >
+            android:text="@string/question_8"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Below are five statements with which you may agree or disagree. Using the 1-7 scale below,indicate your agreement with each item by placing the appropriate number in the line preceding that item. Please be open and honest in your responding."
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="1 = Strongly Disagree\n2 = Disagree\n3 = Slightly Disagree\n4 = Neither Agree or Disagree\n5 = Slightly Agree\n6 = Agree\n7 = Strongly Agree"
-                android:textSize="16sp"
-                android:textStyle="italic" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="In most ways my life is close to my ideal."
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques8_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="7"
-                    />
-                <TextView
-                    android:id="@+id/v_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="The conditions of my life are excellent."
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques8_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="7"
-                    />
-                <TextView
-                    android:id="@+id/v_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="I am satisfied with my life."
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques8_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="7"
-                    />
-                <TextView
-                    android:id="@+id/v_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="So far, I have gotten the important things I want in life."
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques8_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="7"
-                    />
-                <TextView
-                    android:id="@+id/v_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="If I could live my life over, I would change almost nothing."
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques8_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="7"
-                    />
-                <TextView
-                    android:id="@+id/v_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/ques_next8"
+        <RadioGroup
+            android:id="@+id/ques8_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/ques8_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="45dp"
-                android:layout_gravity="center_horizontal"
-                android:text="Next"
-                android:backgroundTint="@color/yellow"
-                />
+                android:text="Yes"
+                android:textSize="14sp" />
+            <RadioButton
+                android:id="@+id/ques8_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="14sp" />
+        </RadioGroup>
 
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/ques_next8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Next"
+            android:backgroundTint="@color/yellow"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

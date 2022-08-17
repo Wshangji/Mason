@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="lf receiving mental health treatment or planning to?"
-            android:textSize="20dp"
+            android:text="@string/question_6_1"
+            android:textSize="16sp"
             android:textColor="@color/black"
             />
 
