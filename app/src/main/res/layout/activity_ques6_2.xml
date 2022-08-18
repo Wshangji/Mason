@@ -7,7 +7,7 @@
     tools:context=".queslist.Ques6_2Activity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView6_2"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -24,8 +24,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.36"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6_2"
+        app:layout_constraintVertical_bias="0.35"
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="Have you spoken with mental health professional this week?"
+            android:text="@string/question_6_2"
             android:textSize="16sp"
             android:textColor="@color/black"
             />
@@ -49,19 +49,18 @@
             android:layout_marginTop="8dp"
             android:orientation="vertical">
             <RadioButton
-                android:id="@+id/ques5_1"
+                android:id="@+id/ques6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yes"
+                android:text="Virtual"
                 android:textSize="14sp" />
             <RadioButton
-                android:id="@+id/ques5_2"
+                android:id="@+id/ques6_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No"
+                android:text="In-person"
                 android:textSize="14sp" />
         </RadioGroup>
-
         <Button
             android:id="@+id/ques_next6_2"
             android:layout_width="wrap_content"
@@ -72,5 +71,6 @@
             />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

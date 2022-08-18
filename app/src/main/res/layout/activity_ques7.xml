@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="@string/question_5"
-            android:textSize="20sp"
+            android:text="@string/question_7"
+            android:textSize="16sp"
             android:textColor="@color/black"
             />
 
@@ -46,44 +46,44 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
             <RadioButton
                 android:id="@+id/ques7_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Classwork"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques7_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Job"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques7_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Finances"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques7_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Relationship"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques7_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Family"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques7_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Friends"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </RadioGroup>
 
         <Button

@@ -40,20 +40,23 @@ type Questions
     pro5: String
     pro6_1: String
     pro6_2: String
-    pro7_1: String
-    pro7_2: String
-    pro7_3: String
-    pro7_4: String
-    pro8_1: String
-    pro8_2: String
-    pro8_3: String
-    pro8_4: String
-    pro8_5: String
-    pro9_1: String
-    pro9_2: String
-    pro9_3: String
-    pro9_4: String
-    pro9_5: String
+    pro7: String
+    pro8: String
+    pro9: String
+    pro10_1: String
+    pro10_2: String
+    pro10_3: String
+    pro10_4: String
+    pro11_1: String
+    pro11_2: String
+    pro11_3: String
+    pro11_4: String
+    pro11_5: String
+    pro12_1: String
+    pro12_2: String
+    pro12_3: String
+    pro12_4: String
+    pro12_5: String
     updatedAt: AWSDateTime
 } 
 

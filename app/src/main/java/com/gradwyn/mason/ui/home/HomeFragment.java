@@ -25,6 +25,7 @@ import com.amplifyframework.datastore.generated.model.User;
 import com.gradwyn.mason.FinishActivity;
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.perquestron.Activity_perquestion;
+import com.gradwyn.mason.queslist.Ques1Activity;
 import com.gradwyn.mason.queslist.Ques2Activity;
 import com.gradwyn.mason.util.Contexts;
 import com.gradwyn.mason.util.NotificationUtil;
@@ -67,48 +68,48 @@ import static com.gradwyn.mason.util.DateUtil.differentDaysByMillisecond;
         });
 
         // 是否开启问卷
-        Amplify.DataStore.query(
-                Questions.class,
-                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername()))
-                        .sorted(Questions.UPDATED_AT.descending())
-                        .paginated(Page.startingAt(0).withLimit(1)),
-                matches -> {
-                    if (matches.hasNext()) {
-                        Questions questions = matches.next();
-                        if (questions!=null) {
-                            int n = differentDaysByMillisecond(questions.getUpdatedAt().toDate());
-                            Log.i("计算间隔", "IsQuestionnaireOpen: "+n);
-                            if (n<14) {
-                                Intent intent = new Intent();
-                                intent.setClass(getActivity(), FinishActivity.class);
-                                startActivity(intent);
-                            }
-                        }
-                        Log.i("Amplify Query Data", "questions: " + questions);
-                    }
-                },
-                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-        );
+//        Amplify.DataStore.query(
+//                Questions.class,
+//                Where.matches(Questions.NAME.eq(Amplify.Auth.getCurrentUser().getUsername()))
+//                        .sorted(Questions.UPDATED_AT.descending())
+//                        .paginated(Page.startingAt(0).withLimit(1)),
+//                matches -> {
+//                    if (matches.hasNext()) {
+//                        Questions questions = matches.next();
+//                        if (questions!=null) {
+//                            int n = differentDaysByMillisecond(questions.getUpdatedAt().toDate());
+//                            Log.i("计算间隔", "IsQuestionnaireOpen: "+n);
+//                            if (n<14) {
+//                                Intent intent = new Intent();
+//                                intent.setClass(getActivity(), FinishActivity.class);
+//                                startActivity(intent);
+//                            }
+//                        }
+//                        Log.i("Amplify Query Data", "questions: " + questions);
+//                    }
+//                },
+//                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+//        );
 
 //        判断是否同意许可协议
-        Amplify.DataStore.query(User.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
-                matches -> {
-                    if (matches.hasNext()) {
-                        User user = matches.next();
-                        Log.i("Amplify Query User", "User: " + user);
-                        if (!user.getIsAgree()){
-                            Intent intent = new Intent();
-                            intent.setClass(getActivity(), Activity_perquestion.class);
-                            startActivity(intent);
-                        }
-                    } else {
-                        Intent intent = new Intent();
-                        intent.setClass(getActivity(), Activity_perquestion.class);
-                        startActivity(intent);
-                    }
-                },
-                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-                );
+//        Amplify.DataStore.query(User.class, Where.id(Amplify.Auth.getCurrentUser().getUserId()),
+//                matches -> {
+//                    if (matches.hasNext()) {
+//                        User user = matches.next();
+//                        Log.i("Amplify Query User", "User: " + user);
+//                        if (!user.getIsAgree()){
+//                            Intent intent = new Intent();
+//                            intent.setClass(getActivity(), Activity_perquestion.class);
+//                            startActivity(intent);
+//                        }
+//                    } else {
+//                        Intent intent = new Intent();
+//                        intent.setClass(getActivity(), Activity_perquestion.class);
+//                        startActivity(intent);
+//                    }
+//                },
+//                failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
+//                );
 
         // 判断是否获取通知
         if (!NotificationUtil.isNotifyEnabled(getActivity())) {
@@ -118,24 +119,24 @@ import static com.gradwyn.mason.util.DateUtil.differentDaysByMillisecond;
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                next.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (Contexts.pro1 != null) {
-                            Intent intent = new Intent(getActivity(), Ques2Activity.class);
-                            startActivity(intent);
-                            getActivity().finish();
-                        } else {
-                            //弹出框
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-                            builder1.setIcon(R.drawable.warn);
-                            builder1.setTitle("Warnings");
-                            builder1.setMessage("Please complete questions");
-                            AlertDialog alert11 = builder1.create();
-                            alert11.show();
-                        }
-                    }
-                });
+//                next.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        if (Contexts.pro1 != null) {
+//                            Intent intent = new Intent(getActivity(), Ques2Activity.class);
+//                            startActivity(intent);
+//                            getActivity().finish();
+//                        } else {
+//                            //弹出框
+//                            AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+//                            builder1.setIcon(R.drawable.warn);
+//                            builder1.setTitle("Warnings");
+//                            builder1.setMessage("Please complete questions");
+//                            AlertDialog alert11 = builder1.create();
+//                            alert11.show();
+//                        }
+//                    }
+//                });
             }
         });
         return root;

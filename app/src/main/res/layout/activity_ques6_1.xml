@@ -7,7 +7,7 @@
     tools:context=".queslist.Ques6_1Activity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView6_1"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6_1"
         app:layout_constraintVertical_bias="0.35"
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
@@ -41,27 +41,32 @@
             />
 
         <RadioGroup
-            android:id="@+id/ques6_group"
+            android:id="@+id/ques6_1_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
             <RadioButton
                 android:id="@+id/ques6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="In persion"
-                android:textSize="16dp" />
+                android:text="Best friend"
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques6_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No"
-                android:textSize="16dp" />
+                android:text="Sister"
+                android:textSize="14sp" />
+            <RadioButton
+                android:id="@+id/ques6_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mother"
+                android:textSize="14sp" />
         </RadioGroup>
-
         <Button
             android:id="@+id/ques_next6_1"
             android:layout_width="wrap_content"

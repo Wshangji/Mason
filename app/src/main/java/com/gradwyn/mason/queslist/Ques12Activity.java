@@ -66,26 +66,30 @@ public class Ques12Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Contexts.pro12_1 != null && Contexts.pro12_2 != null && Contexts.pro12_3 != null && Contexts.pro12_4 != null && Contexts.pro12_5 != null) {
-                    Log.d("数据上传","数据开始上传");
-                    Amplify.DataStore.save(
-                            Questions.builder()
-                                    .name(Amplify.Auth.getCurrentUser().getUsername())
-                                    .build(),
-                            this :: submitSuccess,
-                            this :: submitError
-                    );
+//                    Amplify.DataStore.save(
+//                            Questions.builder()
+//                                    .name(Amplify.Auth.getCurrentUser().getUsername())
+//                                    .build(),
+//                            this :: submitSuccess,
+//                            this :: submitError
+//                    );
 
                     // 添加定时通知
-                    Intent intent = new Intent(Ques12Activity.this, ReminderBoard.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(Ques12Activity.this,0,intent,0);
+//                    Intent intent = new Intent(Ques12Activity.this, ReminderBoard.class);
+//                    PendingIntent pendingIntent = PendingIntent.getBroadcast(Ques12Activity.this,0,intent,0);
+//
+//                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//                    long timeAtButtonClick = System.currentTimeMillis();
+//                    long tenSecondsInMillis = 1000 * 60 * 24 * 7;
+////                    long tenSecondsInMillis = 1000 * 2;
+//                    alarmManager.set(AlarmManager.RTC_WAKEUP,
+//                            timeAtButtonClick+tenSecondsInMillis,
+//                            pendingIntent);
 
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    long timeAtButtonClick = System.currentTimeMillis();
-                    long tenSecondsInMillis = 1000 * 60 * 24 * 7;
-//                    long tenSecondsInMillis = 1000 * 2;
-                    alarmManager.set(AlarmManager.RTC_WAKEUP,
-                            timeAtButtonClick+tenSecondsInMillis,
-                            pendingIntent);
+//                    Intent intent = new Intent(Ques12Activity.this, FinishActivity.class);
+//                    startActivity(intent);
+//                    finish();
+
                 } else {
                     // 弹出框
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques12Activity.this);

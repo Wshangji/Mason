@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".queslist.Ques9Activity">
 
+
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -18,194 +19,59 @@
         app:layout_constraintVertical_bias="0"
         tools:ignore="MissingConstraints" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.36"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:orientation="vertical"
-            >
+            android:text="@string/question_9"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Below are five statements with which you may agree or disagree. Using a 1-5 scale, where 1 =not very well and 5 = very well, indicate your agreement with each item by placing the appropriate number in the line next to that item. Please be open and honest in your responding."
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="How well can you get teachers to help you when you get stuck on your schoolwork?"
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques9_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="5"
-                    />
-                <TextView
-                    android:id="@+id/v9_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="How well are you studying when there are other interesting things to do?"
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques9_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="5"
-                    />
-                <TextView
-                    android:id="@+id/v9_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="How well are you succeeding in finishing all your homework and required readings every day?"
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques9_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="5"
-                    />
-                <TextView
-                    android:id="@+id/v9_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="How well are you paying attention during every class?"
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques9_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="5"
-                    />
-                <TextView
-                    android:id="@+id/v9_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="How well are you succeeding in passing tests?"
-                    android:textColor="@color/black"
-                    />
-                <SeekBar
-                    android:id="@+id/ques9_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:min="1"
-                    android:max="5"
-                    />
-                <TextView
-                    android:id="@+id/v9_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/ques_submit"
+        <RadioGroup
+            android:id="@+id/ques9_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/ques9_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="45dp"
-                android:layout_gravity="center_horizontal"
-                android:text="Submit"
-                android:backgroundTint="@color/yellow"
-                />
+                android:text="Yes"
+                android:textSize="14sp" />
+            <RadioButton
+                android:id="@+id/ques9_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="14sp" />
+        </RadioGroup>
 
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/ques_next9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Next"
+            android:backgroundTint="@color/yellow"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
