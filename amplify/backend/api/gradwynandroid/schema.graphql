@@ -1,0 +1,47 @@
+type Questions @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  pro1: String
+  pro2: String
+  pro3: String
+  pro4: String
+  pro5: String
+  pro6_1: String
+  pro6_2: String
+  pro7: String
+  pro8: String
+  pro9: String
+  pro10_1: String
+  pro10_2: String
+  pro10_3: String
+  pro10_4: String
+  pro11_1: String
+  pro11_2: String
+  pro11_3: String
+  pro11_4: String
+  pro11_5: String
+  pro12_1: String
+  pro12_2: String
+  pro12_3: String
+  pro12_4: String
+  pro12_5: String
+  updatedAt: AWSDateTime
+}
+
+type Perception @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  gender: String
+  race: String
+  ethnicity: String
+  credits: String
+  employs: String
+  eigenstates: String
+  createdAt: AWSDateTime
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  isAgree: Boolean
+}

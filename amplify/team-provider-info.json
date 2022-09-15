@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-mason-dev-221408-authRole",
-      "UnauthRoleArn": "arn:aws:iam::526637689809:role/amplify-mason-dev-221408-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::526637689809:role/amplify-mason-dev-221408-authRole",
+      "AuthRoleName": "amplify-gradwynandroid-dev-213407-authRole",
+      "UnauthRoleArn": "arn:aws:iam::526637689809:role/amplify-gradwynandroid-dev-213407-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::526637689809:role/amplify-gradwynandroid-dev-213407-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-mason-dev-221408-deployment",
-      "UnauthRoleName": "amplify-mason-dev-221408-unauthRole",
-      "StackName": "amplify-mason-dev-221408",
-      "StackId": "arn:aws:cloudformation:us-east-1:526637689809:stack/amplify-mason-dev-221408/402ba840-fec8-11ec-b9ef-0a7730b2d787",
-      "AmplifyAppId": "dtifjok5ppnhv"
+      "DeploymentBucketName": "amplify-gradwynandroid-dev-213407-deployment",
+      "UnauthRoleName": "amplify-gradwynandroid-dev-213407-unauthRole",
+      "StackName": "amplify-gradwynandroid-dev-213407",
+      "StackId": "arn:aws:cloudformation:us-east-1:526637689809:stack/amplify-gradwynandroid-dev-213407/eb39a9a0-3431-11ed-832a-0af3ad7470f3",
+      "AmplifyAppId": "d1dlvbq62tjjnf"
     },
     "categories": {
       "auth": {
-        "mason8e8aefb5": {}
+        "gradwynandroid83bc1996": {}
       }
     }
   }

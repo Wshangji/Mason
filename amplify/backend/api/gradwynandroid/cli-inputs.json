@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "gradwynandroid",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "D:\\PROJECT\\Mason\\amplify\\backend\\api\\gradwynandroid\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}

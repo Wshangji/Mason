@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -15,27 +16,20 @@ import com.gradwyn.mason.util.Contexts;
 
 public class Ques6_1Activity extends AppCompatActivity {
     private Button next;
-    private RadioGroup radioGroup;
-
+    private EditText input;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ques6_1);
         getSupportActionBar().hide();       //隐藏标题栏
         next = findViewById(R.id.ques_next6_1);
-        radioGroup = (RadioGroup) findViewById(R.id.ques6_1_group);
-
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton radioButton = group.findViewById(checkedId);
-                Contexts.pro6_1 = radioButton.getText().toString();
-            }
-        });
+        input = findViewById(R.id.ques6_1_input);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Contexts.pro6_1 = input.getText().toString();
 
                 if (Contexts.pro6_1 != null) {
                     Intent intent = new Intent(Ques6_1Activity.this, Ques6_2Activity.class);

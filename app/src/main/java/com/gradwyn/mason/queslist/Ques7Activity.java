@@ -43,30 +43,9 @@ public class Ques7Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (Contexts.pro7 != null ) {
-//                    Amplify.DataStore.query(
-//                            Perception.class,
-//                            Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
-//                            matches -> {
-//                                if (matches.hasNext()) {
-//                                    Perception perception = matches.next();
-//                                    Log.i("Amplify Query", "persion: " + perception);
-//                                    if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Not currently employed")){
-//                                        Intent intent = new Intent(Ques6_1Activity.this, Ques7Activity.class);
-//                                        startActivity(intent);
-//                                        finish();
-//                                    } else {
-                                        Intent intent = new Intent(Ques7Activity.this, Ques8Activity.class);
-                                        startActivity(intent);
-                                        finish();
-//                                    }
-//                                } else {
-//                                    Intent intent = new Intent(Ques6_1Activity.this, Ques8Activity.class);
-//                                    startActivity(intent);
-//                                    finish();
-//                                }
-//                            },
-//                            failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-//                    );
+                    Intent intent = new Intent(Ques7Activity.this, Ques8Activity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques7Activity.this);
                     builder1.setIcon(R.drawable.warn);

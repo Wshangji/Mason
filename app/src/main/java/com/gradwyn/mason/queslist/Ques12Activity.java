@@ -7,6 +7,7 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import com.gradwyn.mason.util.Contexts;
 import com.gradwyn.mason.util.ReminderBoard;
 
 public class Ques12Activity extends AppCompatActivity {
+    private ProgressDialog loadingDialog;
     private Button submit;
     private SeekBar seekBar1;
     private SeekBar seekBar2;
@@ -65,32 +67,48 @@ public class Ques12Activity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 创建登陆加载动画
+                loadingDialog = new ProgressDialog(Ques12Activity.this);
+                // 点击空白不消失
+                loadingDialog.setCancelable(false);
+                loadingDialog.show();
+                loadingDialog.setContentView(R.layout.loading_view);
+
                 if(Contexts.pro12_1 != null && Contexts.pro12_2 != null && Contexts.pro12_3 != null && Contexts.pro12_4 != null && Contexts.pro12_5 != null) {
-//                    Amplify.DataStore.save(
-//                            Questions.builder()
-//                                    .name(Amplify.Auth.getCurrentUser().getUsername())
-//                                    .build(),
-//                            this :: submitSuccess,
-//                            this :: submitError
-//                    );
-
-                    // 添加定时通知
-//                    Intent intent = new Intent(Ques12Activity.this, ReminderBoard.class);
-//                    PendingIntent pendingIntent = PendingIntent.getBroadcast(Ques12Activity.this,0,intent,0);
-//
-//                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-//                    long timeAtButtonClick = System.currentTimeMillis();
-//                    long tenSecondsInMillis = 1000 * 60 * 24 * 7;
-////                    long tenSecondsInMillis = 1000 * 2;
-//                    alarmManager.set(AlarmManager.RTC_WAKEUP,
-//                            timeAtButtonClick+tenSecondsInMillis,
-//                            pendingIntent);
-
-//                    Intent intent = new Intent(Ques12Activity.this, FinishActivity.class);
-//                    startActivity(intent);
-//                    finish();
-
+                    Amplify.DataStore.save(
+                            Questions.builder()
+                                    .name(Amplify.Auth.getCurrentUser().getUsername())
+                                    .pro1(Contexts.pro1)
+                                    .pro2(Contexts.pro2)
+                                    .pro3(Contexts.pro3)
+                                    .pro4(Contexts.pro4)
+                                    .pro5(Contexts.pro5)
+                                    .pro6_1(Contexts.pro6_1)
+                                    .pro6_2(Contexts.pro6_2)
+                                    .pro7(Contexts.pro7)
+                                    .pro8(Contexts.pro8)
+                                    .pro9(Contexts.pro9)
+                                    .pro10_1(Contexts.pro10_1)
+                                    .pro10_2(Contexts.pro10_2)
+                                    .pro10_3(Contexts.pro10_3)
+                                    .pro10_4(Contexts.pro10_4)
+                                    .pro11_1(Contexts.pro11_1)
+                                    .pro11_2(Contexts.pro11_2)
+                                    .pro11_3(Contexts.pro11_3)
+                                    .pro11_4(Contexts.pro11_4)
+                                    .pro11_5(Contexts.pro11_5)
+                                    .pro12_1(Contexts.pro12_1)
+                                    .pro12_2(Contexts.pro12_2)
+                                    .pro12_3(Contexts.pro12_3)
+                                    .pro12_4(Contexts.pro12_4)
+                                    .pro12_5(Contexts.pro12_5)
+                                    .build(),
+                            this :: submitSuccess,
+                            this :: submitError
+                    );
                 } else {
+                    // 登陆加载动画消失
+                    loadingDialog.dismiss();
                     // 弹出框
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques12Activity.this);
                     builder1.setIcon(R.drawable.warn);
@@ -102,11 +120,27 @@ public class Ques12Activity extends AppCompatActivity {
             }
 
             private void submitError(DataStoreException e) {
+                // 登陆加载动画消失
+                loadingDialog.dismiss();
                 Toast toast = Toast.makeText(Ques12Activity.this, "Submit error" ,Toast.LENGTH_LONG);
                 toast.show();
             }
 
             private <T extends Model> void submitSuccess(DataStoreItemChange<T> tDataStoreItemChange) {
+                // 登陆加载动画消失
+                loadingDialog.dismiss();
+
+                // 添加定时通知
+                Intent alarmManagerIntent = new Intent(Ques12Activity.this, ReminderBoard.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(Ques12Activity.this,0,alarmManagerIntent,0);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                long timeAtButtonClick = System.currentTimeMillis();
+                long tenSecondsInMillis = 1000 * 60 * 24 * 7;
+//                    long tenSecondsInMillis = 1000 * 2;
+                alarmManager.set(AlarmManager.RTC_WAKEUP,
+                        timeAtButtonClick+tenSecondsInMillis,
+                        pendingIntent);
+
                 Intent intent = new Intent(Ques12Activity.this, FinishActivity.class);
                 startActivity(intent);
                 finish();

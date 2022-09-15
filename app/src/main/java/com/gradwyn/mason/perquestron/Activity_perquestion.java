@@ -29,7 +29,8 @@ public class Activity_perquestion extends AppCompatActivity {
     private String gender = null;
     private String race = null;
     private String ethnicity = null;
-    private String ses = null;
+    private String credits = null;
+    private String employs = null;
     private String eigenstates = null;
 
     private ProgressDialog loadingDialog;
@@ -45,8 +46,9 @@ public class Activity_perquestion extends AppCompatActivity {
         RadioGroup radioGroup1 = (RadioGroup) findViewById(R.id.gender_group);
         RadioGroup radioGroup2 = (RadioGroup) findViewById(R.id.race_group);
         RadioGroup radioGroup3 = (RadioGroup) findViewById(R.id.eth_group);
-        RadioGroup radioGroup4 = (RadioGroup) findViewById(R.id.ses_group);
+        RadioGroup radioGroup4 = (RadioGroup) findViewById(R.id.cre_group);
         RadioGroup radioGroup5 = (RadioGroup) findViewById(R.id.emp_group);
+        RadioGroup radioGroup6 = (RadioGroup) findViewById(R.id.mht_group);
 
         //弹出框
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
@@ -108,11 +110,19 @@ public class Activity_perquestion extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = group.findViewById(checkedId);
-                ses = radioButton.getText().toString();
+                credits = radioButton.getText().toString();
             }
         });
 
         radioGroup5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton radioButton = group.findViewById(checkedId);
+                employs = radioButton.getText().toString();
+            }
+        });
+
+        radioGroup6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = group.findViewById(checkedId);
@@ -149,7 +159,8 @@ public class Activity_perquestion extends AppCompatActivity {
                                 .gender(gender)
                                 .race(race)
                                 .ethnicity(ethnicity)
-                                .ses(ses)
+                                .credits(credits)
+                                .employs(employs)
                                 .eigenstates(eigenstates)
                                 .build(),
                         result -> Log.i("MyAmplifyApp", "Created a new post successfully"),
