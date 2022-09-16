@@ -25,12 +25,12 @@ import com.amplifyframework.datastore.generated.model.User;
 import com.gradwyn.mason.FinishActivity;
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.perquestron.Activity_perquestion;
-import com.gradwyn.mason.queslist.Ques1Activity;
 import com.gradwyn.mason.queslist.Ques2Activity;
 import com.gradwyn.mason.util.Contexts;
 import com.gradwyn.mason.util.NotificationUtil;
 
 import static com.gradwyn.mason.util.DateUtil.differentDaysByMillisecond;
+
 
  public class HomeFragment extends Fragment {
 

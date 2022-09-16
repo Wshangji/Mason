@@ -15,11 +15,16 @@ import android.widget.RadioGroup;
 
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.generated.model.Perception;
 import com.amplifyframework.datastore.generated.model.User;
 import com.gradwyn.mason.LoginActivity;
 import com.gradwyn.mason.MainActivity;
 import com.gradwyn.mason.R;
+import com.gradwyn.mason.queslist.Ques11Activity;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class Activity_perquestion extends AppCompatActivity {
     private Button submit;
@@ -135,43 +140,55 @@ public class Activity_perquestion extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 创建登陆加载动画
-                loadingDialog = new ProgressDialog(Activity_perquestion.this);
-                // 点击空白不消失
-                loadingDialog.setCancelable(false);
-                loadingDialog.show();
-                loadingDialog.setContentView(R.layout.loading_view);
-                username = Amplify.Auth.getCurrentUser().getUsername();
-                userId = Amplify.Auth.getCurrentUser().getUserId();
-                Amplify.DataStore.save(
-                        User.builder()
-                                .id(userId)
-                                .name(username)
-                                .isAgree(true)
-                                .build(),
-                        success -> Log.i("MyAmplifyApp", "Saved a User."),
-                        failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
-                );
-                Amplify.DataStore.save(
-                        Perception.builder()
-                                .id(userId)
-                                .name(username)
-                                .gender(gender)
-                                .race(race)
-                                .ethnicity(ethnicity)
-                                .credits(credits)
-                                .employs(employs)
-                                .eigenstates(eigenstates)
-                                .build(),
-                        result -> Log.i("MyAmplifyApp", "Created a new post successfully"),
-                        error -> Log.e("MyAmplifyApp",  "Error creating post", error)
-                );
 
-                loadingDialog.dismiss();
-                Intent intent = new Intent();
-                intent.setClass(Activity_perquestion.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                if (gender!=null && race!=null && eigenstates!=null && credits!=null && employs!=null && eigenstates!=null ) {
+                    // 创建登陆加载动画
+                    loadingDialog = new ProgressDialog(Activity_perquestion.this);
+                    // 点击空白不消失
+                    loadingDialog.setCancelable(false);
+                    loadingDialog.show();
+                    loadingDialog.setContentView(R.layout.loading_view);
+                    username = Amplify.Auth.getCurrentUser().getUsername();
+                    userId = Amplify.Auth.getCurrentUser().getUserId();
+
+                    String date = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
+                    Amplify.DataStore.save(
+                            User.builder()
+                                    .id(userId)
+                                    .name(username)
+                                    .isAgree(true)
+                                    .build(),
+                            success -> Log.i("MyAmplifyApp", "Saved a User."),
+                            failure -> Log.e("MyAmplifyApp", "Save failed.", failure)
+                    );
+                    Amplify.DataStore.save(
+                            Perception.builder()
+                                    .id(userId)
+                                    .name(username)
+                                    .gender(gender)
+                                    .race(race)
+                                    .ethnicity(ethnicity)
+                                    .credits(credits)
+                                    .employs(employs)
+                                    .eigenstates(eigenstates)
+                                    .createdAt(new Temporal.DateTime(date))
+                                    .build(),
+                            result -> loadingDialog.dismiss(),
+                            error -> Log.e("MyAmplifyApp",  "Error creating post", error)
+                    );
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_perquestion.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    //弹出框
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(Activity_perquestion.this);
+                    builder1.setIcon(R.drawable.warn);
+                    builder1.setTitle("Warnings");
+                    builder1.setMessage("Please complete questions");
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
             }
         });
     }

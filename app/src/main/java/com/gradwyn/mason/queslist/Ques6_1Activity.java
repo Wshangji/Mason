@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +29,8 @@ public class Ques6_1Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Contexts.pro6_1 = input.getText().toString();
-
-                if (Contexts.pro6_1 != null) {
+                if (!Contexts.pro6_1.equals("")) {
                     Intent intent = new Intent(Ques6_1Activity.this, Ques6_2Activity.class);
                     startActivity(intent);
                     finish();

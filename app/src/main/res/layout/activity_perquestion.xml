@@ -177,8 +177,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -186,6 +184,8 @@
                     android:layout_height="wrap_content"
                     android:text="How many credits this semester?"
                     android:textColor="@color/black"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:textSize="16sp" />
 
                 <RadioGroup
@@ -217,8 +217,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -226,6 +224,8 @@
                     android:layout_height="wrap_content"
                     android:text="What is your employment status?"
                     android:textColor="@color/black"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:textSize="16sp" />
 
                 <RadioGroup

@@ -181,7 +181,7 @@ public class SignupTabFragment extends Fragment {
                                 .build();
 
                         Amplify.Auth.signUp(uName, uPassword, options,
-                                 this::signUpSuccess,
+                                this::signUpSuccess,
                                 this::signUpError
                         );
                     } else {

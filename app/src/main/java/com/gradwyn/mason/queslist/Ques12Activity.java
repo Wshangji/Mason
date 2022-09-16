@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.model.Model;
+import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.DataStoreException;
 import com.amplifyframework.datastore.DataStoreItemChange;
 import com.amplifyframework.datastore.generated.model.Questions;
@@ -27,6 +28,9 @@ import com.gradwyn.mason.FinishActivity;
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.util.Contexts;
 import com.gradwyn.mason.util.ReminderBoard;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class Ques12Activity extends AppCompatActivity {
     private ProgressDialog loadingDialog;
@@ -67,14 +71,17 @@ public class Ques12Activity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 创建登陆加载动画
-                loadingDialog = new ProgressDialog(Ques12Activity.this);
-                // 点击空白不消失
-                loadingDialog.setCancelable(false);
-                loadingDialog.show();
-                loadingDialog.setContentView(R.layout.loading_view);
 
                 if(Contexts.pro12_1 != null && Contexts.pro12_2 != null && Contexts.pro12_3 != null && Contexts.pro12_4 != null && Contexts.pro12_5 != null) {
+                    String date = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
+
+                    // 创建登陆加载动画
+                    loadingDialog = new ProgressDialog(Ques12Activity.this);
+                    // 点击空白不消失
+                    loadingDialog.setCancelable(false);
+                    loadingDialog.show();
+                    loadingDialog.setContentView(R.layout.loading_view);
+
                     Amplify.DataStore.save(
                             Questions.builder()
                                     .name(Amplify.Auth.getCurrentUser().getUsername())
@@ -102,13 +109,12 @@ public class Ques12Activity extends AppCompatActivity {
                                     .pro12_3(Contexts.pro12_3)
                                     .pro12_4(Contexts.pro12_4)
                                     .pro12_5(Contexts.pro12_5)
+                                    .updatedAt(new Temporal.DateTime(date))
                                     .build(),
                             this :: submitSuccess,
                             this :: submitError
                     );
                 } else {
-                    // 登陆加载动画消失
-                    loadingDialog.dismiss();
                     // 弹出框
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques12Activity.this);
                     builder1.setIcon(R.drawable.warn);

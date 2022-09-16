@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -12,6 +13,9 @@ import android.widget.TextView;
 
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.util.Contexts;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class Ques1Activity extends AppCompatActivity {
     private Button next;
@@ -51,6 +55,8 @@ public class Ques1Activity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Contexts.pro1 = String.valueOf(progress);
+
+
                 view.setText(Contexts.pro1);
             }
 

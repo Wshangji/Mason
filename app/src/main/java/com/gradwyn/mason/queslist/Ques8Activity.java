@@ -57,7 +57,7 @@ public class Ques8Activity extends AppCompatActivity {
                                 if (matches.hasNext()) {
                                     Perception perception = matches.next();
                                     Log.d("Amplify Query", "persion: " + perception);
-                                    if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Yes")){
+                                    if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("No")){
                                         // 登陆加载动画消失
                                         loadingDialog.dismiss();
                                         Intent intent = new Intent(Ques8Activity.this, Ques9Activity.class);

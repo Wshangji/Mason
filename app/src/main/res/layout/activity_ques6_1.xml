@@ -44,6 +44,7 @@
             android:id="@+id/ques6_1_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text=""
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             />
