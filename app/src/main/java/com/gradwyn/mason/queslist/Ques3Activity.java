@@ -37,7 +37,7 @@ public class Ques3Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro3 != null) {
+                if (!Contexts.pro3.equals("")) {
                     Intent intent = new Intent(Ques3Activity.this, Ques4Activity.class);
                     startActivity(intent);
                     finish();

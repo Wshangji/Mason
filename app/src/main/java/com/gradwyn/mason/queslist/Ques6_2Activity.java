@@ -40,7 +40,7 @@ public class Ques6_2Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro6_2 != null) {
+                if (!Contexts.pro6_2.equals("")) {
                     Intent intent = new Intent(Ques6_2Activity.this, Ques7Activity.class);
                     startActivity(intent);
                     finish();

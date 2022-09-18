@@ -42,7 +42,7 @@ public class Ques9Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro9 != null) {
+                if (!Contexts.pro9.equals("")) {
 
                     // 创建登陆加载动画
                     loadingDialog = new ProgressDialog(Ques9Activity.this);

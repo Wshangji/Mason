@@ -131,7 +131,7 @@ public class Ques2Activity extends AppCompatActivity {
                      ) {
                     Contexts.pro2+=t;
                 }
-                if (Contexts.pro2 != null) {
+                if (!Contexts.pro2.equals("")) {
                     Intent intent = new Intent(Ques2Activity.this, Ques3Activity.class);
                     startActivity(intent);
                     finish();

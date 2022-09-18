@@ -42,7 +42,7 @@ public class Ques7Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (Contexts.pro7 != null ) {
+                if (!Contexts.pro7.equals("")) {
                     Intent intent = new Intent(Ques7Activity.this, Ques8Activity.class);
                     startActivity(intent);
                     finish();

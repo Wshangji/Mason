@@ -42,7 +42,7 @@ public class Ques8Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro8 != null) {
+                if (!Contexts.pro8.equals("")) {
                     // 创建登陆加载动画
                     loadingDialog = new ProgressDialog(Ques8Activity.this);
                     // 点击空白不消失

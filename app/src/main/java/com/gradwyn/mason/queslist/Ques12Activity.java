@@ -72,7 +72,7 @@ public class Ques12Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(Contexts.pro12_1 != null && Contexts.pro12_2 != null && Contexts.pro12_3 != null && Contexts.pro12_4 != null && Contexts.pro12_5 != null) {
+                if(!Contexts.pro12_1.equals("") && !Contexts.pro12_2.equals("") && !Contexts.pro12_3.equals("") && !Contexts.pro12_4.equals("") && !Contexts.pro12_5.equals("")) {
                     String date = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
 
                     // 创建登陆加载动画

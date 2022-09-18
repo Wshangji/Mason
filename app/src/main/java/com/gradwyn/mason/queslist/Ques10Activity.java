@@ -109,7 +109,7 @@ public class Ques10Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro10_1 != null && Contexts.pro10_2 != null && Contexts.pro10_3 != null && Contexts.pro10_4 != null) {
+                if (!Contexts.pro10_1.equals("") && !Contexts.pro10_2.equals("") && !Contexts.pro10_3.equals("") && !Contexts.pro10_4.equals("")) {
                     Intent intent = new Intent(Ques10Activity.this, Ques11Activity.class);
                     startActivity(intent);
                     finish();

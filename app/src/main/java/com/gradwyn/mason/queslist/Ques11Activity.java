@@ -50,7 +50,7 @@ public class Ques11Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Contexts.pro11_1 != null && Contexts.pro11_2 != null && Contexts.pro11_3 != null && Contexts.pro11_4 != null && Contexts.pro11_5 != null) {
+                if(!Contexts.pro11_1.equals("") && !Contexts.pro11_2.equals("") && !Contexts.pro11_3.equals("") && !Contexts.pro11_4.equals("") && !Contexts.pro11_5.equals("")) {
                     Intent intent = new Intent(Ques11Activity.this, Ques12Activity.class);
                     startActivity(intent);
                     finish();
