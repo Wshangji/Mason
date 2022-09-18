@@ -24,7 +24,7 @@ public class Ques4Activity extends AppCompatActivity {
         setContentView(R.layout.activity_ques4);
         getSupportActionBar().hide();       //隐藏标题栏
         next = findViewById(R.id.ques_next4);
-        radioGroup = findViewById(R.id.ques4);
+        radioGroup = findViewById(R.id.ques4_group);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -37,7 +37,7 @@ public class Ques4Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro4 != null) {
+                if (!Contexts.pro4.equals("")) {
                     Intent intent = new Intent(Ques4Activity.this, Ques5Activity.class);
                     startActivity(intent);
                     finish();

@@ -8,13 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.gradwyn.mason.R;
 import com.gradwyn.mason.util.Contexts;
 
 public class Ques3Activity extends AppCompatActivity {
     private Button next;
-    private EditText input;
+    private RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +24,20 @@ public class Ques3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_ques3);
         getSupportActionBar().hide();       //隐藏标题栏
         next = findViewById(R.id.ques_next3);
-        input = findViewById(R.id.ques3);
+        radioGroup = findViewById(R.id.ques3_group);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton radioButton = group.findViewById(checkedId);
+                Contexts.pro3 = radioButton.getText().toString();
+            }
+        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Contexts.pro3 = input.getText().toString();
-                if (Contexts.pro3 != null) {
+                if (!Contexts.pro3.equals("")) {
                     Intent intent = new Intent(Ques3Activity.this, Ques4Activity.class);
                     startActivity(intent);
                     finish();

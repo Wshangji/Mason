@@ -7,7 +7,7 @@
     tools:context=".queslist.Ques2Activity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="@drawable/head"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.35"
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="There are many coping strategies that students have used to support their mental wellness during COVID-19. Please indicate which of the following you have benefitted from this week. (select all that apply)"
-            android:textSize="20dp"
+            android:text="@string/question_2"
+            android:textSize="16sp"
             android:textColor="@color/black"
             />
 
@@ -44,64 +44,80 @@
             android:id="@+id/ck_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="interaction with family"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Interaction with family"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="interaction with significant other"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Interaction with significant other"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="being around pets"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Being around pets"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="virtual mental health services"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Virtual mental health services"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="involvement with campus student groups"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Involvement with campus student groups"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="increased privacy"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Increased privacy"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="increased financial support from your institution"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Increased financial support from your institution"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
         <CheckBox
             android:id="@+id/ck_8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="other"
-            android:textSize="16dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="Other"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"
             tools:ignore="OnClick" />
 

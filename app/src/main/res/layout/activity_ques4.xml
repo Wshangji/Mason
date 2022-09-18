@@ -35,13 +35,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="Were these interactions mostly virtual or in person?"
-            android:textSize="20dp"
+            android:text="@string/question_4"
+            android:textSize="16sp"
             android:textColor="@color/black"
             />
 
         <RadioGroup
-            android:id="@+id/ques4"
+            android:id="@+id/ques4_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -52,14 +52,20 @@
                 android:id="@+id/ques4_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Virtual"
-                android:textSize="16dp" />
+                android:text="Mild"
+                android:textSize="14sp" />
             <RadioButton
                 android:id="@+id/ques4_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="In person"
-                android:textSize="16dp" />
+                android:text="Moderate"
+                android:textSize="14sp" />
+            <RadioButton
+                android:id="@+id/ques4_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Severe"
+                android:textSize="14sp" />
         </RadioGroup>
 
         <Button

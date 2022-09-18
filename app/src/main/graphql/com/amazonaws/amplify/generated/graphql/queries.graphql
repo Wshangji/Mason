@@ -1,94 +1,73 @@
 # this is an auto generated file. This will be overwritten
-query SyncUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncUsers(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      name
-      isAgree
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      owner
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetUser($id: ID!) {
-  getUser(id: $id) {
+query GetQuestions($id: ID!) {
+  getQuestions(id: $id) {
     id
     name
-    isAgree
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
+    pro1
+    pro2
+    pro3
+    pro4
+    pro5
+    pro6_1
+    pro6_2
+    pro7
+    pro8
+    pro9
+    pro10_1
+    pro10_2
+    pro10_3
+    pro10_4
+    pro11_1
+    pro11_2
+    pro11_3
+    pro11_4
+    pro11_5
+    pro12_1
+    pro12_2
+    pro12_3
+    pro12_4
+    pro12_5
     updatedAt
-    owner
+    createdAt
   }
 }
-query ListUsers(
-  $filter: ModelUserFilterInput
+query ListQuestions(
+  $filter: ModelQuestionsFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listQuestions(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
-      isAgree
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
+      pro1
+      pro2
+      pro3
+      pro4
+      pro5
+      pro6_1
+      pro6_2
+      pro7
+      pro8
+      pro9
+      pro10_1
+      pro10_2
+      pro10_3
+      pro10_4
+      pro11_1
+      pro11_2
+      pro11_3
+      pro11_4
+      pro11_5
+      pro12_1
+      pro12_2
+      pro12_3
+      pro12_4
+      pro12_5
       updatedAt
-      owner
+      createdAt
     }
     nextToken
-    startedAt
-  }
-}
-query SyncPerceptions(
-  $filter: ModelPerceptionFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncPerceptions(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      name
-      gender
-      race
-      ethnicity
-      ses
-      eigenstates
-      createdAt
-      _version
-      _deleted
-      _lastChangedAt
-      updatedAt
-      owner
-    }
-    nextToken
-    startedAt
   }
 }
 query GetPerception($id: ID!) {
@@ -98,14 +77,11 @@ query GetPerception($id: ID!) {
     gender
     race
     ethnicity
-    ses
+    credits
+    employs
     eigenstates
     createdAt
-    _version
-    _deleted
-    _lastChangedAt
     updatedAt
-    owner
   }
 }
 query ListPerceptions(
@@ -120,137 +96,37 @@ query ListPerceptions(
       gender
       race
       ethnicity
-      ses
+      credits
+      employs
       eigenstates
       createdAt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
-      owner
     }
     nextToken
-    startedAt
   }
 }
-query SyncQuestions(
-  $filter: ModelQuestionsFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncQuestions(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      name
-      pro1
-      pro2
-      pro3
-      pro4
-      pro5
-      pro6_1
-      pro6_2
-      pro7_1
-      pro7_2
-      pro7_3
-      pro7_4
-      pro8_1
-      pro8_2
-      pro8_3
-      pro8_4
-      pro8_5
-      pro9_1
-      pro9_2
-      pro9_3
-      pro9_4
-      pro9_5
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      owner
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetQuestions($id: ID!) {
-  getQuestions(id: $id) {
+query GetUser($id: ID!) {
+  getUser(id: $id) {
     id
     name
-    pro1
-    pro2
-    pro3
-    pro4
-    pro5
-    pro6_1
-    pro6_2
-    pro7_1
-    pro7_2
-    pro7_3
-    pro7_4
-    pro8_1
-    pro8_2
-    pro8_3
-    pro8_4
-    pro8_5
-    pro9_1
-    pro9_2
-    pro9_3
-    pro9_4
-    pro9_5
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
+    isAgree
     createdAt
-    owner
+    updatedAt
   }
 }
-query ListQuestionss(
-  $filter: ModelQuestionsFilterInput
+query ListUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listQuestionss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
-      pro1
-      pro2
-      pro3
-      pro4
-      pro5
-      pro6_1
-      pro6_2
-      pro7_1
-      pro7_2
-      pro7_3
-      pro7_4
-      pro8_1
-      pro8_2
-      pro8_3
-      pro8_4
-      pro8_5
-      pro9_1
-      pro9_2
-      pro9_3
-      pro9_4
-      pro9_5
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      isAgree
       createdAt
-      owner
+      updatedAt
     }
     nextToken
-    startedAt
   }
 }

@@ -36,7 +36,7 @@ public class Ques5Activity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro5 != null) {
+                if (!Contexts.pro5.equals("")) {
                     Intent intent = new Intent(Ques5Activity.this, Ques6_1Activity.class);
                     startActivity(intent);
                     finish();

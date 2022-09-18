@@ -34,40 +34,16 @@ public class Ques6_2Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = group.findViewById(checkedId);
                 Contexts.pro6_2 = radioButton.getText().toString();
-                if (Contexts.pro6_2 == null) {
-                    Contexts.pro6_2 = "";
-                }
             }
         });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Contexts.pro6_2 != null) {
-                    Amplify.DataStore.query(
-                            Perception.class,
-                            Where.matches(Perception.NAME.eq(Amplify.Auth.getCurrentUser().getUsername())),
-                            matches -> {
-                                if (matches.hasNext()) {
-                                    Perception perception = matches.next();
-                                    Log.i("Amplify Query", "persion: " + perception);
-                                    if (perception.getEigenstates()!=null && !perception.getEigenstates().equals("Not currently employed")){
-                                        Intent intent = new Intent(Ques6_2Activity.this, Ques7Activity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    } else {
-                                        Intent intent = new Intent(Ques6_2Activity.this, Ques8Activity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                } else {
-                                    Intent intent = new Intent(Ques6_2Activity.this, Ques8Activity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            },
-                            failure -> Log.e("MyAmplifyApp", "Query failed.", failure)
-                    );
+                if (!Contexts.pro6_2.equals("")) {
+                    Intent intent = new Intent(Ques6_2Activity.this, Ques7Activity.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     //弹出框
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(Ques6_2Activity.this);

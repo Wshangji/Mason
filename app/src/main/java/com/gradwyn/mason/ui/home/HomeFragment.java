@@ -31,6 +31,7 @@ import com.gradwyn.mason.util.NotificationUtil;
 
 import static com.gradwyn.mason.util.DateUtil.differentDaysByMillisecond;
 
+
  public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
@@ -121,7 +122,7 @@ import static com.gradwyn.mason.util.DateUtil.differentDaysByMillisecond;
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (Contexts.pro1 != null) {
+                        if (!Contexts.pro1.equals("")) {
                             Intent intent = new Intent(getActivity(), Ques2Activity.class);
                             startActivity(intent);
                             getActivity().finish();

@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "gradwynandroid",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2022-09-14T14:31:24.397Z"
+}

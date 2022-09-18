@@ -22,7 +22,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Perception type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Perceptions", authRules = {
-  @AuthRule(allow = AuthStrategy.OWNER, ownerField = "owner", identityClaim = "cognito:username", provider = "userPools", operations = { ModelOperation.CREATE, ModelOperation.DELETE, ModelOperation.UPDATE })
+  @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
 public final class Perception implements Model {
   public static final QueryField ID = field("Perception", "id");
@@ -30,7 +30,8 @@ public final class Perception implements Model {
   public static final QueryField GENDER = field("Perception", "gender");
   public static final QueryField RACE = field("Perception", "race");
   public static final QueryField ETHNICITY = field("Perception", "ethnicity");
-  public static final QueryField SES = field("Perception", "ses");
+  public static final QueryField CREDITS = field("Perception", "credits");
+  public static final QueryField EMPLOYS = field("Perception", "employs");
   public static final QueryField EIGENSTATES = field("Perception", "eigenstates");
   public static final QueryField CREATED_AT = field("Perception", "createdAt");
   private final @ModelField(targetType="ID", isRequired = true) String id;
@@ -38,7 +39,8 @@ public final class Perception implements Model {
   private final @ModelField(targetType="String") String gender;
   private final @ModelField(targetType="String") String race;
   private final @ModelField(targetType="String") String ethnicity;
-  private final @ModelField(targetType="String") String ses;
+  private final @ModelField(targetType="String") String credits;
+  private final @ModelField(targetType="String") String employs;
   private final @ModelField(targetType="String") String eigenstates;
   private final @ModelField(targetType="AWSDateTime") Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -62,8 +64,12 @@ public final class Perception implements Model {
       return ethnicity;
   }
   
-  public String getSes() {
-      return ses;
+  public String getCredits() {
+      return credits;
+  }
+  
+  public String getEmploys() {
+      return employs;
   }
   
   public String getEigenstates() {
@@ -78,13 +84,14 @@ public final class Perception implements Model {
       return updatedAt;
   }
   
-  private Perception(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt) {
+  private Perception(String id, String name, String gender, String race, String ethnicity, String credits, String employs, String eigenstates, Temporal.DateTime createdAt) {
     this.id = id;
     this.name = name;
     this.gender = gender;
     this.race = race;
     this.ethnicity = ethnicity;
-    this.ses = ses;
+    this.credits = credits;
+    this.employs = employs;
     this.eigenstates = eigenstates;
     this.createdAt = createdAt;
   }
@@ -102,7 +109,8 @@ public final class Perception implements Model {
               ObjectsCompat.equals(getGender(), perception.getGender()) &&
               ObjectsCompat.equals(getRace(), perception.getRace()) &&
               ObjectsCompat.equals(getEthnicity(), perception.getEthnicity()) &&
-              ObjectsCompat.equals(getSes(), perception.getSes()) &&
+              ObjectsCompat.equals(getCredits(), perception.getCredits()) &&
+              ObjectsCompat.equals(getEmploys(), perception.getEmploys()) &&
               ObjectsCompat.equals(getEigenstates(), perception.getEigenstates()) &&
               ObjectsCompat.equals(getCreatedAt(), perception.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), perception.getUpdatedAt());
@@ -117,7 +125,8 @@ public final class Perception implements Model {
       .append(getGender())
       .append(getRace())
       .append(getEthnicity())
-      .append(getSes())
+      .append(getCredits())
+      .append(getEmploys())
       .append(getEigenstates())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -134,7 +143,8 @@ public final class Perception implements Model {
       .append("gender=" + String.valueOf(getGender()) + ", ")
       .append("race=" + String.valueOf(getRace()) + ", ")
       .append("ethnicity=" + String.valueOf(getEthnicity()) + ", ")
-      .append("ses=" + String.valueOf(getSes()) + ", ")
+      .append("credits=" + String.valueOf(getCredits()) + ", ")
+      .append("employs=" + String.valueOf(getEmploys()) + ", ")
       .append("eigenstates=" + String.valueOf(getEigenstates()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -163,6 +173,7 @@ public final class Perception implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -173,7 +184,8 @@ public final class Perception implements Model {
       gender,
       race,
       ethnicity,
-      ses,
+      credits,
+      employs,
       eigenstates,
       createdAt);
   }
@@ -184,7 +196,8 @@ public final class Perception implements Model {
     BuildStep gender(String gender);
     BuildStep race(String race);
     BuildStep ethnicity(String ethnicity);
-    BuildStep ses(String ses);
+    BuildStep credits(String credits);
+    BuildStep employs(String employs);
     BuildStep eigenstates(String eigenstates);
     BuildStep createdAt(Temporal.DateTime createdAt);
   }
@@ -196,7 +209,8 @@ public final class Perception implements Model {
     private String gender;
     private String race;
     private String ethnicity;
-    private String ses;
+    private String credits;
+    private String employs;
     private String eigenstates;
     private Temporal.DateTime createdAt;
     @Override
@@ -209,7 +223,8 @@ public final class Perception implements Model {
           gender,
           race,
           ethnicity,
-          ses,
+          credits,
+          employs,
           eigenstates,
           createdAt);
     }
@@ -239,8 +254,14 @@ public final class Perception implements Model {
     }
     
     @Override
-     public BuildStep ses(String ses) {
-        this.ses = ses;
+     public BuildStep credits(String credits) {
+        this.credits = credits;
+        return this;
+    }
+    
+    @Override
+     public BuildStep employs(String employs) {
+        this.employs = employs;
         return this;
     }
     
@@ -268,13 +289,14 @@ public final class Perception implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String gender, String race, String ethnicity, String ses, String eigenstates, Temporal.DateTime createdAt) {
+    private CopyOfBuilder(String id, String name, String gender, String race, String ethnicity, String credits, String employs, String eigenstates, Temporal.DateTime createdAt) {
       super.id(id);
       super.name(name)
         .gender(gender)
         .race(race)
         .ethnicity(ethnicity)
-        .ses(ses)
+        .credits(credits)
+        .employs(employs)
         .eigenstates(eigenstates)
         .createdAt(createdAt);
     }
@@ -300,8 +322,13 @@ public final class Perception implements Model {
     }
     
     @Override
-     public CopyOfBuilder ses(String ses) {
-      return (CopyOfBuilder) super.ses(ses);
+     public CopyOfBuilder credits(String credits) {
+      return (CopyOfBuilder) super.credits(credits);
+    }
+    
+    @Override
+     public CopyOfBuilder employs(String employs) {
+      return (CopyOfBuilder) super.employs(employs);
     }
     
     @Override

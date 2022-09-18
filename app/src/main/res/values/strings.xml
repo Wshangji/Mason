@@ -4,66 +4,27 @@
     <string name="title_home">Home</string>
     <string name="title_user_center">User Center</string>
     <string name="title_notifications">Notifications</string>
-    <string name="content">RESEARCH PROCEDURES: \n
-        We invite you to participate in an important research study to gauge the effects of a digital
-        health solution on students’ mental health and college success during the COVID-19
-        pandemic. In the U.S., there have been more than 30 million COVID-19 infections and 600,000
-        related deaths. The coronavirus has had a disastrous effect on the daily lives of Americans,
-        adversely affecting education, employment, and mental wellbeing. This study will examine the
-        utility of a data-driven and proactive app for undergraduate students’ academic success and
-        mental well-being during the COVID-19 pandemic. The app will predict and contextualize
-        retention rates by sensing for physical, behavioral, and emotional risk factors and may prompt
-        higher education institutions to intervene with specific students at specific times for specific
-        reasons. The app will be tailored to the wide diversity of students attending GMU, including low-income, minority, and under-represented populations. We expect that the study will take 45-50
-        minutes of your time over the course of the semester. Your time will be spent reading the
-informed consent document and completing weekly 3-minute-long surveys over the course of
-the semester. Surveys will include questions on content such as academic goals, coping
-strategies, and stress. \n
-RISKS: \n
-There are minimal foreseeable risks to participating in this study. You may skip over questions
-you do not feel comfortable answering or withdraw at any time. You can also reach Counseling
-and Psychological Services (CAPS) should you seek resources if you encounter
-stress/discomfort while take the survey (703-993-2380). \n
-BENEFITS: \n
-There are no direct benefits to participants who partake in this study.\n
-CONFIDENTIALITY: \n
-The data in this study will be confidential. While it is understood that no computer transmission
-can be perfectly secure, reasonable efforts are made to protect the confidentiality of your data
-transmission. Data will be stored in one computer which will remain in Peterson Hall on the
-Fairfax campus. Faculty included on this project will have access to your identifying information,
-including your name, email, and George Mason University G number. Other researchers will
-receive access to data in a de-identified format to ensure participant privacy and confidentiality.
-CAPS and participants’ academic advisors may receive access to personal identifiers if deemed
-necessary by this study’s researchers as well. De-identified data could be used for future
-research without additional consent from you. The Institutional Review Board (IRB) committee
-that monitors research on human subjects may inspect study records during internal auditing procedures and are required to keep all information confidential. If a participant indicates
-immediate mental health issues or dropping grades within the app, CAPS and/or their academic
-advisor will receive contact from research staff for an intervention. \n
-        PARTICIPATION: \n
-Your participation is voluntary, and you can refuse to answer questions in weekly surveys or
-drop out at any time. We won’t associate any of your answers with you specifically. There are
-no costs or foreseeable risks for you to take part in this study. You will receive $20 for the
-completion of 8 weeks’ worth of surveys. Upon completing 8 weeks of surveys, you will be given
-$2/week for continued participation in the app. You can earn a maximum of $36 for completing
-each weekly survey. Note that you must reach 8 weeks of survey completions in order to
-receive any compensation. All payouts will be distributed in Amazon e-gift cards. Under the U.S.
-federal tax law, you may have individual responsibilities for disclosing the dollar value of the
-incentive received on this study. \n
-ELIGIBILITY: \n
-You are considered eligible to participate in this study if you: \n
- - Are 18 years of age or older \n
- - Are a current undergraduate student at George Mason University \n
-CONTACT: \n
-This survey is being conducted by Lawrence Cheskin, MD and Alison Cuellar, PhD,
-multidisciplinary professors at George Mason University. You can contact them at
-lcheskin@gmu.edu and aevanscu@gmu.edu, respectively. Alternatively, you can reach
-Lawrence Cheskin, PhD at 703-993-6264. You may also contact the George Mason University
-Institutional Review Board office at 703-993-4121 or email irb@gmu.edu if you have questions
-or comments regarding your rights as a participant. This research has been reviewed according
-to George Mason University procedures governing your participation in this research. \n
-CONSENT: \n
-I have read this form, all my questions have been answered by the research staff, and I agree to
-participate in this study. By selecting “yes,” I indicate my eligibility and consent to participate. </string>
+    <string name="content">
+        RESEARCH PROCEDURES: \n
+            We invite you to participate in an important research study to gauge the effects of a digital health solution on students’ mental health and college success during the COVID-19 pandemic.  In the U.S., there have been more than 30 million COVID-19 infections and 600,000 related deaths. The coronavirus has had a disastrous effect on the daily lives of Americans, adversely affecting education, employment, and mental wellbeing. This study will examine the utility of a data-driven and proactive app for undergraduate students’ academic success and mental well-being during the COVID-19 pandemic. The app will predict and contextualize retention rates by sensing for physical, behavioral, and emotional risk factors and may prompt higher education institutions to intervene with specific students at specific times for specific reasons. The app will be tailored to the wide diversity of students attending GMU, including low-income, minority, and under-represented populations. We expect that the study will take 45-50 minutes of your time over the course of the semester. Your time will be spent reading the informed consent document and completing weekly 3-minute-long surveys over the course of the semester. Surveys will include questions on content such as academic goals, coping strategies, and stress.\n
+        RISKS \n
+            There are minimal foreseeable risks to participating in this study. You may skip over questions you do not feel comfortable answering or withdraw at any time.  You can also reach Counseling and Psychological Services (CAPS) should you seek resources if you encounter stress/discomfort while take the survey (703-993-2380). \n
+        BENEFITS \n
+            There are no direct benefits to participants who partake in this study. \n
+        CONFIDENTIALITY \n
+            The data in this study will be confidential. While it is understood that no computer transmission can be perfectly secure, reasonable efforts are made to protect the confidentiality of your data transmission. Data will be stored in one computer which will remain in Peterson Hall on the Fairfax campus. Faculty included on this project will have access to your identifying information, including your name, email, and George Mason University G number. Other researchers will receive access to data in a de-identified format to ensure participant privacy and confidentiality. CAPS and participants’ academic advisors may receive access to personal identifiers if deemed necessary by this study’s researchers as well. De-identified data could be used for future research without additional consent from you. The Institutional Review Board (IRB) committee that monitors research on human subjects may inspect study records during internal auditing procedures and are required to keep all information confidential. If a participant indicates immediate mental health issues or dropping grades within the app, CAPS and/or their academic advisor will receive contact from research staff for an intervention. \n
+        PARTICIPATION \n
+            Your participation is voluntary, and you can refuse to answer questions in weekly surveys or drop out at any time. We won’t associate any of your answers with you specifically. There are no costs or foreseeable risks for you to take part in this study. You will receive $20 for the completion of 8 weeks’ worth of surveys. Upon completing 8 weeks of surveys, you will be given $2/week for continued participation in the app. You can earn a maximum of $36 for completing each weekly survey. Note that you must reach 8 weeks of survey completions in order to receive any compensation. All payouts will be distributed in Amazon e-gift cards. Under the U.S. federal tax law, you may have individual responsibilities for disclosing the dollar value of the incentive received on this study. \n
+        ELIGIBILITY \n
+            You are considered eligible to participate in this study if you: \n
+            - Are 18 years of age or older \n
+            - Are a current undergraduate student at George Mason University \n
+        CONTACT \n
+            This survey is being conducted by Lawrence Cheskin, MD and Alison Cuellar, PhD, multidisciplinary professors at George Mason University. You can contact them at lcheskin@gmu.edu and aevanscu@gmu.edu, respectively. Alternatively, you can reach Lawrence Cheskin, PhD at 703-993-6264. You may also contact the George Mason University Institutional Review Board office at 703-993-4121 or email irb@gmu.edu if you have questions or comments regarding your rights as a participant. This research has been reviewed according to George Mason University procedures governing your participation in this research. \n
+        CONSENT \n
+            I have read this form, all my questions have been answered by the research staff, and I agree to participate in this study. By selecting “yes,” I indicate my eligibility and consent to participate. \n
+
+    </string>
     <string name="channel_name">channel_name</string>
     <string name="channel_description">channel_description</string>
     <string name="title_activity_ques7">Ques7Activity</string>
@@ -75,4 +36,20 @@ participate in this study. By selecting “yes,” I indicate my eligibility and
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <!--  questions  -->
+    <string name="question_1">On a scale of 1–10, how hopeful are you about achieving your academic goals this semester (1=not at all hopeful, 10=extremely hopeful)?</string>
+    <string name="question_2">There are many coping strategies that students have used to support their mental wellness during COVID-19. Please indicate which of the following you have benefitted from this week. (select all that apply)</string>
+    <string name="question_3">Have you observed a lack of motivation for study this week?</string>
+    <string name="question_4">Have you faced challenges in the taking of online classes?</string>
+    <string name="question_5">Are you vaccinated against COVID-19?</string>
+    <string name="question_6_1">During this week, with whom did you have the most interaction?Ex.best friend, sister, mother, write in option</string>
+    <string name="question_6_2">Virtual or in-person?</string>
+    <string name="question_7">What has been most stressful, if anything, for you during this week? </string>
+    <string name="question_8">Have you experienced any financial stress this past week?</string>
+    <string name="question_9">Have you spoken with a a mental health professional in the pastis week?</string>
+    <string name="question_10">How many times has the following happened within the last week</string>
+    <string name="question_11">Satisfaction with Life Scale(Rate your agreement with each statement using the scale 1–7, 1 closest agreement, 7 strongest disagreement).</string>
+    <string name="question_12">Academic Self-Efficacy Scale(1= Not Very Well to 5= Very Well)</string>
 </resources>
